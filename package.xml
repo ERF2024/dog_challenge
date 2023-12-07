@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>ERFDogChallenge</name>
+  <version>0.0.0</version>
+  <description>The ERFDogChallenge package</description>
+
+  <maintainer email="michele.focchi@8unitn.it"> Michele Focchi </maintainer>
+
+  <license>TODO</license>
+
+
+  <exec_depend>gazebo_ros</exec_depend>
+  
+  <buildtool_depend>catkin</buildtool_depend>
+
+
+  <export>
+
+
+  </export>
+</package>
