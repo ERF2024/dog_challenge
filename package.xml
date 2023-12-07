@@ -13,9 +13,8 @@
   
   <buildtool_depend>catkin</buildtool_depend>
 
-
   <export>
-
-
+    <gazebo_ros gazebo_model_path="${prefix}/worlds/small_maze"/>
+    <gazebo_ros gazebo_media_path="${prefix}/worlds/small_maze"/>
   </export>
 </package>
