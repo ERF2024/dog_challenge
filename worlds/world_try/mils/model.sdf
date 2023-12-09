@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="mils">
+    <static>true</static>
+    <link name="link">
+      <pose>0 0 0.1 0 -1.57 0</pose>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <uri>model://mils/meshes/Akro_mils.stl</uri>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://mils/meshes/Akro_mils.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>
