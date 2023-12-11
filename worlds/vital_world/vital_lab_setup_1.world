@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+<world name="default">
+
+<scene><ambient>0.95 0.95 0.95 0.95</ambient><background>0.95 0.95 0.95 0.95</background></scene>
+
+<gui fullscreen='0'><camera name='user_camera'><pose frame=''>2 -6 0.7 0 0 1.5</pose>
+<view_controller>orbit</view_controller><projection_type>perspective</projection_type>
+</camera></gui>
+
+<physics type='ode'><gravity>0 0 -9.81</gravity>
+<max_step_size>0.001</max_step_size><real_time_factor>1</real_time_factor>
+</physics>
+
+<include> <uri>model://sun</uri> </include>
+<include> <uri>model://ground_plane</uri> </include>
+
+
+<!-- Setup 0: 3 L pallets -->
+<include> <name>Vital Pallet 00</name> <uri>model://vital_pallet_lab_L</uri> <pose>1.70 0 -0.02 0 0 0  </pose> </include>
+<include> <name>Vital Pallet 01</name> <uri>model://vital_pallet_lab_L</uri> <pose>2.00 0 0.08 0 0 0  </pose> </include>
+<include> <name>Vital Pallet 02</name> <uri>model://vital_pallet_lab_L</uri> <pose>2.56 0 0.08 0 0 0  </pose> </include>
+<include> <name>Vital Pallet 03</name> <uri>model://vital_pallet_lab_L</uri> <pose>3.12 0 0.08 0 0 0  </pose> </include>
+
+
+<!-- Setup 1: only L pallets -->
+<!--
+<include> <name>Vital Pallet 01</name> <uri>model://vital_pallet_lab_L</uri> <pose>2.00 0 0.08 0 0 0  </pose> </include>
+<include> <name>Vital Pallet 02</name> <uri>model://vital_pallet_lab_L</uri> <pose>2.56 0 0.24 0 0 0  </pose> </include>
+<include> <name>Vital Pallet 03</name> <uri>model://vital_pallet_lab_L</uri> <pose>3.12 0 0.24 0 0 0  </pose> </include>
+<include> <name>Vital Pallet 04</name> <uri>model://vital_pallet_lab_L</uri> <pose>3.68 0 0.08 0 0 0  </pose> </include>
+-->
+
+<!-- Setup 2: all pallets -->
+<!--
+<include> <name>Vital Pallet 01</name> <uri>model://vital_pallet_lab_L</uri> <pose>2.00 0 0.080 0 0 0  </pose> </include>
+<include> <name>Vital Pallet 02</name> <uri>model://vital_pallet_lab_L</uri> <pose>2.56 0 0.240 0 0 0  </pose> </include>
+<include> <name>Vital Pallet 02</name> <uri>model://vital_pallet_lab_M</uri> <pose>2.99 0 0.325 0 0 0  </pose> </include>
+<include> <name>Vital Pallet 02</name> <uri>model://vital_pallet_lab_S</uri> <pose>3.24 0 0.325 0 0 0  </pose> </include>
+<include> <name>Vital Pallet 03</name> <uri>model://vital_pallet_lab_L</uri> <pose>3.62 0 0.240 0 0 0  </pose> </include>
+<include> <name>Vital Pallet 04</name> <uri>model://vital_pallet_lab_L</uri> <pose>3.90 0 0.080 0 0 0  </pose> </include>
+-->
+
+<!-- Setup 3: all pallets with gaps-->
+<!--
+<include> <name>Vital Pallet 01</name> <uri>model://vital_pallet_lab_L</uri> <pose>2.00 0 0.080 0 0 0  </pose> </include>
+<include> <name>Vital Pallet 02</name> <uri>model://vital_pallet_lab_L</uri> <pose>2.61 0 0.240 0 0 0  </pose> </include>
+<include> <name>Vital Pallet 02</name> <uri>model://vital_pallet_lab_M</uri> <pose>3.14 0 0.325 0 0 0  </pose> </include>
+<include> <name>Vital Pallet 02</name> <uri>model://vital_pallet_lab_S</uri> <pose>3.44 0 0.325 0 0 0  </pose> </include>
+<include> <name>Vital Pallet 03</name> <uri>model://vital_pallet_lab_L</uri> <pose>3.87 0 0.240 0 0 0  </pose> </include>
+<include> <name>Vital Pallet 04</name> <uri>model://vital_pallet_lab_L</uri> <pose>4.2 0 0.080 0 0 0  </pose> </include>
+-->
+
+</world>
+</sdf>

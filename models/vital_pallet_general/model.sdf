@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="vital_pallet_general">
+    <static>true</static>
+    <link name="chassis">
+      <pose>0 0 0 0 0 0</pose>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>0.25 2.0 0.1</size>
+          </box>
+        </geometry>
+        <friction>
+          <ode>
+            <mu>100</mu>
+            <mu2>50</mu2>
+          </ode>
+        </friction>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://vital_pallet_general/meshes/simple_box.dae</uri>
+            <scale>0.25 2.0 0.1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://vital_pallet_general/materials/scripts</uri>
+            <uri>model://vital_pallet_general/materials/textures</uri>
+            <name>BrickBox/Diffuse</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>
+

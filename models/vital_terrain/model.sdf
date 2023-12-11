@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+<model name="shamel_terrain">
+<static>true</static>
+<link name="link">
+<pose>0 0 0 0 0 0</pose>
+<collision name="collision"> <geometry> <mesh> <uri>model://vital_terrain/mesh/terrain.dae</uri> <scale>1 1 0.25</scale> </mesh> </geometry> </collision>
+<visual name="visual">       <geometry> <mesh> <uri>model://vital_terrain/mesh/terrain.dae</uri> <scale>1 1 0.25</scale> </mesh> </geometry> </visual>
+</link>
+</model>
+</sdf>
+
