@@ -9,7 +9,7 @@
 
 **Package summary**
 
-A repository for ERF DOG Challenge. Used for build, test, and deployment for the Navigation Track
+A repository for ERF DOG Challenge. Used for build, test, and deployment for both the Navigation Track and the Locomotion Track 
 
 - Maintainer status: maintained
 - Maintainers
@@ -24,7 +24,6 @@ A repository for ERF DOG Challenge. Used for build, test, and deployment for the
 **Table of Contents**
 - [Overview](#overview)
 - [Installation Steps](#installation-steps)
-    - 
 
 </div>
 </div>
@@ -33,21 +32,46 @@ A repository for ERF DOG Challenge. Used for build, test, and deployment for the
 
 ## Overview
 
-Put Logo erf
-[<img src="https://www.ros.org/imgs/logo-white.png" width="200"/>](http://www.ros.org/)
+<img src="images/eagleprojects.png" width=""/><img src="images/erf_logo.png" width="300"/>
 
-<img src="doc/gazebo_map.png" width=""/>
 
-- This repository provides framework and the URDF for the challenge for simulation 
+
+This repository provides framework and the URDF for the challenge for simulation 
+
 - You can download and check map overview from <a href="doc/map.pdf" download>here</a>.
 - You can find information about the challenge on the <a href="docs/rule.md">rule page </a>
-- The supported robot for this simulation is Go1 from Unitree robotics (put picture of go1)
+- The supported robot for this simulation is Go1 from Unitree robotics
+
+
+
+
+
+
 
 ---
 
 ## Installation Steps
 
-...
+For the teams that are enrolled in the navigation track, we provide a simulation framework. The goal is to explore a maze and find an object in the shortest time possible. 
+
+
+
+export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:$HOME/ros_ws/src/DogChallenge/models
+export GAZEBO_RESOURCE_PATH=$GAZEBO_RESOURCE_PATH:$HOME/ros_ws/src/DogChallenge/worlds 
+
+
+
+
+
+
+
+
+
+
+
+Usage
+
+
 
 
 

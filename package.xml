@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>ERFDogChallenge</name>
+  <name>dog_challenge</name>
   <version>0.0.0</version>
-  <description>The ERFDogChallenge package</description>
+  <description>The ERF Dog Challenge package</description>
 
   <maintainer email="michele.focchi@8unitn.it"> Michele Focchi </maintainer>
 
