@@ -17,6 +17,8 @@
     <gazebo_ros gazebo_model_path="${prefix}/worlds/small_maze"/>
     <gazebo_ros gazebo_media_path="${prefix}/worlds/small_maze"/>  
     <gazebo_ros gazebo_model_path="${prefix}/worlds/world_try"/>
-    <gazebo_ros gazebo_media_path="${prefix}/worlds/world_try"/>  
+    <gazebo_ros gazebo_media_path="${prefix}/worlds/world_try"/>
+    <gazebo_ros gazebo_model_path="${prefix}/worlds/locomotion"/>
+    <gazebo_ros gazebo_media_path="${prefix}/worlds/locomotion"/>  
   </export>
 </package>
