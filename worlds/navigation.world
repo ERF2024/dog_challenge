@@ -1,6 +1,11 @@
 <?xml version="1.0" ?>
 <sdf version="1.5">
   <world name="default">
+   <gui>
+      <camera name="user_default">
+            <pose>16. 2. 13. 0 0.77 3.12</pose>
+      </camera>
+    </gui>    
      <scene>
       <sky>
         <clouds>
