@@ -51,70 +51,62 @@ This repository provides framework and the URDF for the challenge for simulation
 
 ### Navigation 
 
-For the teams that are enrolled in the navigation track, we provide a simulation framework. The goal is to explore a maze and find an object in the shortest time possible. To use it we provide a framework designed by Gennaro Raiola called https://github.com/graiola/wolf-setup.git
+For the teams that are enrolled in the navigation track, we provide a simulation framework.  To use it we provide a framework designed by Gennaro Raiola called https://github.com/graiola/wolf-setup.git
 
-- To use the framework you need just to launch this script:
-
-
-```
-export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:$HOME/ros_ws/src/DogChallenge/models
-export GAZEBO_RESOURCE_PATH=$GAZEBO_RESOURCE_PATH:$HOME/ros_ws/src/DogChallenge/worlds
-```
-
-
-
-The first time you call this script it will take a bit longer (<1 minute) because a docker image with the code and its dependencies will be downloaded locally. The script spawns the robot into a maze that will be very similar to the one that you will: 
-
-
-
+- To use the framework you need just to launch this script contained in the script folder of this repository:
 
 
 ```
-export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:$HOME/ros_ws/src/DogChallenge/models
-export GAZEBO_RESOURCE_PATH=$GAZEBO_RESOURCE_PATH:$HOME/ros_ws/src/DogChallenge/worlds
+./start_framework.sh
 ```
 
+Note: The first time you call this script it will take a bit longer to run (<1 minute) because it is going to download a docker image with the framework's code its dependencies. This image will be downloaded locally. Then, the script spawns the Go1 robot into a maze that will be very similar to the one that you will use on real. 
 
+ The goal of this challenge is to explore a maze and detect artifacts (e.g. a fire estinguisher) in the shortest time possible and correctly report where these artifacts are located. In order to do this, you need to first to develop:
 
+1. An accurate mapping and localization (SLAM) framework that tells us where we are.
 
+2. A perception system that can recognize artifacts. The first object you need to find is a fire extinguisher as in the picture<img src="images/extinguisher.jpg" width="300"/>
 
+    
 
+The control of  a  team encompasses the access to each robot's sensors and actuators. The framework provides you access to the odometry and the perception capabilities of the robot to get information on the environment.
 
 #### Sensor topics:
 
-There are 4 Realsense stereo-cameras on the 4 sides of the robot that publish in the following topics:
+These are the sensor specifications:
 
-```bash
-/point_cloud_left
-/point_cloud_right
-...
-```
+| Sensor type                  | Specification                      |
+| ---------------------------- | ---------------------------------- |
+| 3D short range 270-deg lidar | 5m 270-deg planar lidar            |
+|                              |                                    |
+|                              |                                    |
+|                              |                                    |
+| IMU                          | 3-axis accelerometer and gyroscope |
+| Point lidar                  | range sensor (40m)                 |
+| HD camera                    | 1280x960 60-deg 2D camera**        |
 
-A LIDAR located on the back is publishing in this topic:
+Each sensor publishes data over a ROS topic. Here's a summary of the topics used by each sensor type.
 
-```bash
-/rslidar_points
-```
+There are 4 RealSense stereo-cameras on the 4 sides of the robot. A **LiDAR** sensor is located on the top of the robot. The sensors publish on the following topics (Gennaro check):
 
+| ROS Topic                          | Description                          | Message type                                                 |
+| ---------------------------------- | ------------------------------------ | ------------------------------------------------------------ |
+| ``/<ROBOT_NAME>/joint_state``      | Joint angles [rad] and rates [rad/s] | [sensor_msgs/JointState](http://docs.ros.org/api/sensor_msgs/html/msg/JointState.html) |
+| ``/<ROBOT_NAME>/point_cloud_left`` | TODO                                 | TODO                                                         |
+| `/<ROBOT_NAME>/point_cloud_right`  | TODO                                 | TODO                                                         |
+| `/<ROBOT_NAME>/point_cloud_front`  | TODO                                 | TODO                                                         |
+| ``/<ROBOT_NAME>/point_cloud_back`` | TODO                                 | TODO                                                         |
+| ``/<ROBOT_NAME>/rslidar_points``   | TODO                                 | TODO                                                         |
 
+The second step is to develop a planning algorithm that provides the robot with the ability to navigate and move the robot in the environment. The Wolf simulation framework provides a combination of ROS and C++  interfaces to manage these tasks. This section explains these interfaces grouped by type.
 
+The Wolf Framework implements velocity controllers. They accept `Twist` messages and continuously publish `Odometry` messages. With this interface, you should be able to command linear and angular velocities to each robot and get its current position  estimation. The velocities are expressed in the body frame of the robot.
 
-You can use the launch argument to select and load only maps of the desired track.
-
-```bash
-roslaunch ERFDogChallenfe course:=navigation # or locomotion 
-```
-
-
-
-
-
-
-
-
-
-
-
+| ROS Topic      | Description     | Message type                                                 |
+| -------------- | --------------- | ------------------------------------------------------------ |
+| `/go1/cmd_vel` | Target velocity | [geometry_msgs/Twist](http://docs.ros.org/api/geometry_msgs/html/msg/Twist.html) |
+| `/go1/odom`    | Odometry        | [nav_msgs/Odometry](http://docs.ros.org/melodic/api/nav_msgs/html/msg/Odometry.html) |
 
 
 
@@ -124,12 +116,26 @@ The map with of the race (with obstacles) is with the **locomotion.world** file.
 
 The goal is to overpass all obstacles and reach the final destination in the shortest time possible. For details on the rule of the game, refer to the <a href="docs/rule.md">rule page </a> If you want to use the Go1 robot you can use this  [URDF description](https://github.com/graiola/wolf_description). For any clarification please open a Github issue on this repository. 
 
+The obstacles are of different nature and are designed to test different robot capabilities:
+
+1. Stairs
+2. Gap 
+3. Narrow passage
+4. Cluttered passage: the robot needs to walk belly down to pass underneath 
+5. Holes in the terrain
+6. Stepping Stones
+7. Pile of rubble
+8. Soft foam/ deformable terrain
+9. Big ramps with change of inclination
+10. Omni-directional small ramps
+
 To load (in a Gazebo simulator) the  map contained in **locomotion.world**: 
 
 - Append these commands in your .bashrc
 
 ```
 export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:$HOME/DogChallengeFolder/models
+export GAZEBO_PLUGIN_PATH=$GAZEBO_MODEL_PATH:$HOME/DogChallengeFolder/plugins/lib
 export GAZEBO_RESOURCE_PATH=$GAZEBO_RESOURCE_PATH:$HOME/DogChallengeFolder/worlds
 ```
 
@@ -144,5 +150,4 @@ roslaunch gazebo_ros empty_world.launch world_name:=locomotion.world
 In this version, we only provide a method to import an SDF environment in a gazebo simulation. Alternatively, you can use your own framework and code to load the map model.
 
  
-
 

@@ -1,6 +1,7 @@
 ---
 
-This `**Rules and Regulations**` pertains to the Quadruped Robot Challenges in ICRA2023. This guideline intends to give the participating teams on how each team will be graded to determine the winning team in a manner that is fair to appreciate technologically innovative and well-implemented team’s efforts.
+This `**Rules and Regulations**` pertains to the DOG Race Challenge at ERF. This guideline intends to give the participating teams on how each team will be graded to determine the winning team in a manner that is fair to appreciate technologically innovative and well-implemented team’s efforts.
+
 Robots must be fully autonomous using onboard sensing and computation only. No external sensing, computing, or control is allowed except the emergency case.
 All robots use the inner lane for the competition.
 
