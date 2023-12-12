@@ -55,62 +55,43 @@ For the teams that are enrolled in the navigation track, we provide a simulation
 
 - To use the framework you need just to launch this script:
 
-
-```
-export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:$HOME/ros_ws/src/DogChallenge/models
-export GAZEBO_RESOURCE_PATH=$GAZEBO_RESOURCE_PATH:$HOME/ros_ws/src/DogChallenge/worlds
+```bash
+./start_framework.sh
 ```
 
-
-
-The first time you call this script it will take a bit longer (<1 minute) because a docker image with the code and its dependencies will be downloaded locally. The script spawns the robot into a maze that will be very similar to the one that you will: 
-
-
-
-
-
-```
-export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:$HOME/ros_ws/src/DogChallenge/models
-export GAZEBO_RESOURCE_PATH=$GAZEBO_RESOURCE_PATH:$HOME/ros_ws/src/DogChallenge/worlds
-```
-
-
-
-
-
-
+The first time you call this script it will take a bit longer (~5 minute) because a docker image with the code and its dependencies will be downloaded locally. The script spawns the robot into a maze that will be very similar to the one that you will find at the challenge. 
 
 #### Sensor topics:
 
-There are 4 Realsense stereo-cameras on the 4 sides of the robot that publish in the following topics:
+There are 5 stereo-cameras on 5 sides of the robot (face,left,right,chin,rearDown) that publish in the following namespaces:
 
 ```bash
-/point_cloud_left
-/point_cloud_right
-...
+/camera_chin_ir
+/camera_face_ir
+/camera_left_ir
+/camera_rearDown_ir
+/camera_right_ir
 ```
 
-A LIDAR located on the back is publishing in this topic:
+A LIDAR located on the top of the robot is publishing in this topic:
 
 ```bash
 /rslidar_points
 ```
 
-
-
-
-You can use the launch argument to select and load only maps of the desired track.
+You can use the script argument `start_framework.sh -w ...` to select and load the maps of the desired track, please check the help options for details.
 
 ```bash
-roslaunch ERFDogChallenfe course:=navigation # or locomotion 
+./start_framework.sh -h
 ```
 
+Once the map and the robot are loaded, you can standup the robot by pressing the `enter` key on the virtual keyboard.
+You can use this virtual keyboard to move the robot around.
+To send twist commands to the robot you can use the following topic:
 
-
-
-
-
-
+```bash
+/wolf_controller/twist
+```
 
 
 
