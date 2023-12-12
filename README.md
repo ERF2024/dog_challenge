@@ -57,12 +57,18 @@ For the teams that are enrolled in the navigation track, we provide a simulation
 
 
 ```
-./start_framework.sh
+$./start_framework.sh
 ```
 
-Note: The first time you call this script it will take a bit longer to run (<1 minute) because it is going to download a docker image with the framework's code its dependencies. This image will be downloaded locally. Then, the script spawns the Go1 robot into a maze that will be very similar to the one that you will use on real. 
+The first time you call this script it will take a bit longer (~5 minute) because it is going to download  a docker image with  the framework's  code and its dependencies. This image will be downloaded locally. Then, the script spawns the Go1 robot into a maze that will be very similar to the one that you will find at the challenge. 
 
- The goal of this challenge is to explore a maze and detect artifacts (e.g. a fire estinguisher) in the shortest time possible and correctly report where these artifacts are located. In order to do this, you need to first to develop:
+You can use the script argument `start_framework.sh -w ...` to select and load the maps of the desired track, please check the help options for details.
+
+```bash
+$./start_framework.sh -h
+```
+
+The goal of this challenge is to explore a maze and detect artifacts (e.g. a fire extinguisher) in the shortest time possible and correctly report where these artifacts are located. In order to do this, you need to first to develop:
 
 1. An accurate mapping and localization (SLAM) framework that tells us where we are.
 
@@ -72,41 +78,38 @@ Note: The first time you call this script it will take a bit longer to run (<1 m
 
 The control of  a  team encompasses the access to each robot's sensors and actuators. The framework provides you access to the odometry and the perception capabilities of the robot to get information on the environment.
 
-#### Sensor topics:
-
-These are the sensor specifications:
-
-| Sensor type                  | Specification                      |
-| ---------------------------- | ---------------------------------- |
-| 3D short range 270-deg lidar | 5m 270-deg planar lidar            |
-|                              |                                    |
-|                              |                                    |
-|                              |                                    |
-| IMU                          | 3-axis accelerometer and gyroscope |
-| Point lidar                  | range sensor (40m)                 |
-| HD camera                    | 1280x960 60-deg 2D camera**        |
+#### Sensors:
 
 Each sensor publishes data over a ROS topic. Here's a summary of the topics used by each sensor type.
 
-There are 4 RealSense stereo-cameras on the 4 sides of the robot. A **LiDAR** sensor is located on the top of the robot. The sensors publish on the following topics (Gennaro check):
+| Sensor type                               | Specification                                                |
+| ----------------------------------------- | ------------------------------------------------------------ |
+| Robosense RS-LiDAR-16                     | miniature LiDAR with a range of 150m and an accuracy of 2cm.  16 laser/detector pairs that rapidly spin, sending out high-frequency laser pulses. |
+| IMU                                       | 3-axis accelerometer and gyroscope                           |
+| 5 sets of fisheye binocular depth sensing | Single depth camera lens<br/>angle 150*170                   |
 
-| ROS Topic                          | Description                          | Message type                                                 |
-| ---------------------------------- | ------------------------------------ | ------------------------------------------------------------ |
-| ``/<ROBOT_NAME>/joint_state``      | Joint angles [rad] and rates [rad/s] | [sensor_msgs/JointState](http://docs.ros.org/api/sensor_msgs/html/msg/JointState.html) |
-| ``/<ROBOT_NAME>/point_cloud_left`` | TODO                                 | TODO                                                         |
-| `/<ROBOT_NAME>/point_cloud_right`  | TODO                                 | TODO                                                         |
-| `/<ROBOT_NAME>/point_cloud_front`  | TODO                                 | TODO                                                         |
-| ``/<ROBOT_NAME>/point_cloud_back`` | TODO                                 | TODO                                                         |
-| ``/<ROBOT_NAME>/rslidar_points``   | TODO                                 | TODO                                                         |
+
+
+There are 5 stereo-cameras on 5 sides of the robot (face,left,right,chin,rearDown). A **LiDAR** sensor is located on the top of the robot. The sensors publish on the following topics (Gennaro check):
+
+| ROS Topic                     | Description                          | Message type                                                 |
+| ----------------------------- | ------------------------------------ | ------------------------------------------------------------ |
+| ``/<ROBOT_NAME>/joint_state`` | Joint angles [rad] and rates [rad/s] | [sensor_msgs/JointState](http://docs.ros.org/api/sensor_msgs/html/msg/JointState.html) |
+| ``/point_cloud_left``         | TODO                                 | TODO                                                         |
+| `/point_cloud_right`          | TODO                                 | TODO                                                         |
+| `/point_cloud_front`          | TODO                                 | TODO                                                         |
+| ``/point_cloud_back``         | TODO                                 | TODO                                                         |
+| ``/rslidar_points``           | TODO                                 | TODO                                                         |
 
 The second step is to develop a planning algorithm that provides the robot with the ability to navigate and move the robot in the environment. The Wolf simulation framework provides a combination of ROS and C++  interfaces to manage these tasks. This section explains these interfaces grouped by type.
 
-The Wolf Framework implements velocity controllers. They accept `Twist` messages and continuously publish `Odometry` messages. With this interface, you should be able to command linear and angular velocities to each robot and get its current position  estimation. The velocities are expressed in the body frame of the robot.
+The Wolf Framework implements velocity controllers. They accept `Twist` messages and continuously publish `Odometry` messages. With this interface, you should be able to command linear and angular velocities to each robot and get its current position  estimation. The velocities are expressed in the body frame of the robot. Once the map and the robot are loaded, you can standup the robot by pressing the `enter` key on the virtual keyboard.
+You can use this virtual keyboard to move the robot around. To send twist commands (and receive odometry messages) to the robot you can use the following topics:
 
-| ROS Topic      | Description     | Message type                                                 |
-| -------------- | --------------- | ------------------------------------------------------------ |
-| `/go1/cmd_vel` | Target velocity | [geometry_msgs/Twist](http://docs.ros.org/api/geometry_msgs/html/msg/Twist.html) |
-| `/go1/odom`    | Odometry        | [nav_msgs/Odometry](http://docs.ros.org/melodic/api/nav_msgs/html/msg/Odometry.html) |
+| ROS Topic                | Description     | Message type                                                 |
+| ------------------------ | --------------- | ------------------------------------------------------------ |
+| `/wolf_controller/twist` | Target velocity | [geometry_msgs/Twist](http://docs.ros.org/api/geometry_msgs/html/msg/Twist.html) |
+| `/go1/odom`              | Odometry        | [nav_msgs/Odometry](http://docs.ros.org/melodic/api/nav_msgs/html/msg/Odometry.html) |
 
 
 
