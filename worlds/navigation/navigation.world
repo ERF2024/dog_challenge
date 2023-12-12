@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="default">
+     <scene>
+      <sky>
+        <clouds>
+          <speed>3</speed>
+        </clouds>
+      </sky>
+    </scene>    
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun_2</uri>
+    </include>
+    <!-- A ground plane -->
+    <include>
+      <static>true</static>
+      <pose>0 0 0 0 0 0</pose>
+      <uri>model://grass_plane</uri>
+    </include>
+    <include>
+      <static>true</static>
+      <pose>-1 -1 -2.7 0 0 0</pose>
+      <uri>model://smaze2d</uri>
+    </include>
+    <include>
+      <pose>17 20 0 0 0 0</pose>
+      <uri>model://extinguisher</uri>
+    </include>
+  </world>
+</sdf>

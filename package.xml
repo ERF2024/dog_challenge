@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>dog_challenge</name>
+  <version>0.0.0</version>
+  <description>The ERF Dog Challenge package</description>
+
+  <maintainer email="michele.focchi@8unitn.it"> Michele Focchi </maintainer>
+
+  <license>TODO</license>
+
+
+  <exec_depend>gazebo_ros</exec_depend>
+  
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <export>
+    <gazebo_ros gazebo_model_path="${prefix}/worlds/small_maze"/>
+    <gazebo_ros gazebo_media_path="${prefix}/worlds/small_maze"/>  
+    <gazebo_ros gazebo_model_path="${prefix}/worlds/world_try"/>
+    <gazebo_ros gazebo_media_path="${prefix}/worlds/world_try"/>
+    <gazebo_ros gazebo_model_path="${prefix}/worlds/locomotion"/>
+    <gazebo_ros gazebo_media_path="${prefix}/worlds/locomotion"/>  
+  </export>
+</package>

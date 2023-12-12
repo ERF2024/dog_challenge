@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="stairs_terrain">
+    <static>true</static>
+    <link name="link">
+      <pose>0 0 0.23 0 0 0</pose>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <uri>model://stairs_terrain/meshes/stairs_terrain.stl</uri>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://stairs_terrain/meshes/stairs_terrain.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>
