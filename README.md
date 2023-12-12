@@ -51,7 +51,7 @@ This repository provides framework and the URDF for the challenge for simulation
 
 ### Navigation 
 
-For the teams that are enrolled in the navigation track, we provide a simulation framework.  To use it we provide a framework designed by Gennaro Raiola called https://github.com/graiola/wolf-setup.git
+For the teams that are enrolled in the navigation track, we provide a simulation framework.  To use it we provide a framework designed by Gennaro Raiola called <a href="https://github.com/graiola/wolf-setup.git">Wolf </a> .
 
 - To use the framework you need just to launch this script in the root folder of this repository:
 
@@ -84,7 +84,7 @@ Each sensor publishes data over a ROS topic. Here's a summary of the topics used
 
 | Sensor type                               | Specification                                                |
 | ----------------------------------------- | ------------------------------------------------------------ |
-| Robosense RS-LiDAR-16                     | miniature LiDAR with a range of 150m and an accuracy of 2cm.  16 laser/detector pairs that rapidly spin, sending out high-frequency laser pulses. |
+| Robosense RS-LiDAR-16                     | miniature LiDAR with a range of 150m and an accuracy of 2cm. 16 laser/detector pairs that rapidly spin, sending out high-frequency laser pulses. |
 | IMU                                       | 3-axis accelerometer and gyroscope                           |
 | 5 sets of fisheye binocular depth sensing | Single depth camera lens angle 150*170                       |
 
@@ -104,12 +104,42 @@ There are 5 stereo-cameras on 5 sides of the robot (face,left,right,chin,rearDow
 The second step is to develop a planning algorithm that provides the robot with the ability to navigate and move the robot in the environment. The Wolf simulation framework provides a combination of ROS and C++  interfaces to manage these tasks. This section explains these interfaces grouped by type.
 
 The Wolf Framework implements velocity controllers. They accept `Twist` messages and continuously publish `Odometry` messages. With this interface, you should be able to command linear and angular velocities to each robot and get its current position  estimation. The velocities are expressed in the body frame of the robot. Once the map and the robot are loaded, you can standup the robot by pressing the `enter` key on the virtual keyboard.
-You can use this virtual keyboard to move the robot around. To send twist commands (and receive odometry messages) to the robot you can use the following topics:
+You can use this virtual keyboard to move the robot around. 
+
+To send twist commands (and receive Odometry messages) to the robot you need to use the following topics:
 
 | ROS Topic                | Description     | Message type                                                 |
 | ------------------------ | --------------- | ------------------------------------------------------------ |
 | `/wolf_controller/twist` | Target velocity | [geometry_msgs/Twist](http://docs.ros.org/api/geometry_msgs/html/msg/Twist.html) |
 | `/go1/odom`              | Odometry        | [nav_msgs/Odometry](http://docs.ros.org/melodic/api/nav_msgs/html/msg/Odometry.html) |
+
+**IMPORTANT:**
+
+The topics are broadcasted back and forth from the docker image to your host machine. If you have ROS installed on your machine just open another terminal and do a test running:
+
+```bash
+$ rostopic pub /wolf_controller/twist geometry_msgs/Twist -r 1 -- '[2.0, 0.0, 0.0]' '[0.0, 0.0, 0.]'
+```
+
+You should see that the robot starts walking in a straight line in the maze.
+
+If you do not have ROS installed in your host machine, you need to install docker launching this <a href="https://github.com/graiola/wolf-setup/blob/master/support/install_docker.sh">Docker install script </a> .
+
+Then open a terminal and run:
+
+```bash
+$ docker exec -it wolf-app /bin/bash
+```
+
+Now you are inside the docker environment and you can run your nodes (e.g. lauch the rostopic test script). 
+
+To develop your own code create a ROS workspace folder (e.g. $HOME/ros_ws) and pass it as an argument to the start_framework script with the -v flag setting you local development code folder (e.g. $HOME/ros_ws) :  
+
+```bash
+$ ./start_framework.sh -v $HOME/ros_ws
+```
+
+the folder that will be automatically mounted and visible to docker. 
 
 
 
@@ -132,7 +162,7 @@ The obstacles are of different nature and are designed to test different robot c
 9. Big ramps with change of inclination
 10. Omni-directional small ramps
 
-To load (in a Gazebo simulator) the  map contained in **locomotion.world**: 
+To load (in a Gazebo simulator) the  map contained in **worlds/locomotion/locomotion.world**: 
 
 - Append these commands in your .bashrc
 
@@ -147,7 +177,7 @@ where **DogChallengeFolder** is the folder where you cloned this repository
 - Spawn Gazebo simulation with this command:
 
 ```bash
-roslaunch gazebo_ros empty_world.launch world_name:=locomotion.world
+roslaunch dog_challenge locomotion.launch
 ```
 
 In this version, we only provide a method to import an SDF environment in a gazebo simulation. Alternatively, you can use your own framework and code to load the map model.
