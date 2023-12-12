@@ -78,13 +78,13 @@ ROS=noetic
 CONTAINER_NAME="wolf-app"
 IMAGE_TAG="focal"
 ROBOT_MODEL=go1
-WORLD_FILE=/home/root/dog_challenge/worlds/$WORLD_NAME.world
+WORLD_FILE=/home/root/dog_challenge/worlds/$WORLD_NAME/$WORLD_NAME.world
 GAZEBO_GUI=true
 SENSORS=true
 INITIAL_XYZ=[0.0,0.0,1.0]
 NET=host
 GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/$ROS/share/wolf_gazebo_resources/models/:/home/root/dog_challenge/models
-GAZEBO_RESOURCE_PATH=$GAZEBO_RESOURCE_PATH:/home/root/dog_challenge/worlds
+GAZEBO_RESOURCE_PATH=$GAZEBO_RESOURCE_PATH:/home/root/dog_challenge/worlds/$WORLD_NAME
 
 # Checks
 if [[ ( $WORLD_NAME == "navigation") ]] 

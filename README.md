@@ -53,7 +53,7 @@ This repository provides framework and the URDF for the challenge for simulation
 
 For the teams that are enrolled in the navigation track, we provide a simulation framework.  To use it we provide a framework designed by Gennaro Raiola called https://github.com/graiola/wolf-setup.git
 
-- To use the framework you need just to launch this script contained in the script folder of this repository:
+- To use the framework you need just to launch this script in the root folder of this repository:
 
 
 ```
@@ -86,20 +86,20 @@ Each sensor publishes data over a ROS topic. Here's a summary of the topics used
 | ----------------------------------------- | ------------------------------------------------------------ |
 | Robosense RS-LiDAR-16                     | miniature LiDAR with a range of 150m and an accuracy of 2cm.  16 laser/detector pairs that rapidly spin, sending out high-frequency laser pulses. |
 | IMU                                       | 3-axis accelerometer and gyroscope                           |
-| 5 sets of fisheye binocular depth sensing | Single depth camera lens<br/>angle 150*170                   |
+| 5 sets of fisheye binocular depth sensing | Single depth camera lens angle 150*170                       |
 
 
 
 There are 5 stereo-cameras on 5 sides of the robot (face,left,right,chin,rearDown). A **LiDAR** sensor is located on the top of the robot. The sensors publish on the following topics (Gennaro check):
 
-| ROS Topic                     | Description                          | Message type                                                 |
-| ----------------------------- | ------------------------------------ | ------------------------------------------------------------ |
-| ``/<ROBOT_NAME>/joint_state`` | Joint angles [rad] and rates [rad/s] | [sensor_msgs/JointState](http://docs.ros.org/api/sensor_msgs/html/msg/JointState.html) |
-| ``/point_cloud_left``         | TODO                                 | TODO                                                         |
-| `/point_cloud_right`          | TODO                                 | TODO                                                         |
-| `/point_cloud_front`          | TODO                                 | TODO                                                         |
-| ``/point_cloud_back``         | TODO                                 | TODO                                                         |
-| ``/rslidar_points``           | TODO                                 | TODO                                                         |
+| ROS Topic             | Description                          | Message type                                                 |
+| --------------------- | ------------------------------------ | ------------------------------------------------------------ |
+| ``/joint_state``      | Joint angles [rad] and rates [rad/s] | [sensor_msgs/JointState](http://docs.ros.org/api/sensor_msgs/html/msg/JointState.html) |
+| ``/point_cloud_left`` | TODO                                 | TODO                                                         |
+| `/point_cloud_right`  | TODO                                 | TODO                                                         |
+| `/point_cloud_front`  | TODO                                 | TODO                                                         |
+| ``/point_cloud_back`` | TODO                                 | TODO                                                         |
+| ``/rslidar_points``   | TODO                                 | TODO                                                         |
 
 The second step is to develop a planning algorithm that provides the robot with the ability to navigate and move the robot in the environment. The Wolf simulation framework provides a combination of ROS and C++  interfaces to manage these tasks. This section explains these interfaces grouped by type.
 
