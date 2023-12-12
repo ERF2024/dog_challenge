@@ -17,8 +17,9 @@ Application Options:
 \n 
 -n,--namespace \tDefine the ROS namespace [default=], example: -n robot_1
 \n 
--w,--world \tWorld name [default=navigation], example: -w navigation"
-
+-w,--world \tWorld name [default=navigation], example: -w navigation
+\n 
+-v,--volume \tMounted folder [default=$HOME/ros_ws], example: -v $HOME/ros_ws"
 echo ' 
 ###########################################
 #                                         #
@@ -49,6 +50,7 @@ fi
 # Default
 NAMESPACE=
 WORLD_NAME=navigation
+MOUNTED_CODE_VOLUME=$HOME/ros_ws
 
 while [ -n "$1" ]; do # while loop starts
 
@@ -63,6 +65,11 @@ while [ -n "$1" ]; do # while loop starts
 		WORLD_NAME="$2"
 		shift
 		;;
+	 -v|--volume)
+		MOUNTED_CODE_VOLUME="$2"
+		shift
+		;;
+
 
 	*) echo "Option $1 not recognized!" 
 		echo -e $USAGE
@@ -110,9 +117,10 @@ fi
 # Cleanup the docker container before launching it
 docker rm -f $CONTAINER_NAME > /dev/null 2>&1 || true 
 
-docker run --user root:root --hostname $HOSTNAME --net=$NET --device=/dev/dri:/dev/dri --privileged -e "QT_X11_NO_MITSHM=1" -e GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH -e GAZEBO_RESOURCE_PATH=$GAZEBO_RESOURCE_PATH -e SHELL -e DISPLAY -e DOCKER=1 --name $CONTAINER_NAME \
+docker run --user root:root --hostname $HOSTNAME  --net=$NET --device=/dev/dri:/dev/dri --privileged -e "QT_X11_NO_MITSHM=1" -e GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH -e GAZEBO_RESOURCE_PATH=$GAZEBO_RESOURCE_PATH -e SHELL -e DISPLAY -e DOCKER=1  --name $CONTAINER_NAME \
 	--gpus all \
 	--device=/dev/ttyUSB0 \
 	--volume="/tmp:/tmp:rw" \
 	--volume="$SCRIPTPATH:/home/root/dog_challenge:rw" \
+	--volume="$MOUNTED_CODE_VOLUME:/home/root/ros_ws:rw"\
         -it $IMAGE_NAME $SHELL -c "source /opt/ros/$ROS/setup.bash; source /opt/xbot/setup.sh; roslaunch wolf_controller wolf_controller_bringup.launch robot_name:=$NAMESPACE robot_model:=$ROBOT_MODEL sensors:=$SENSORS gazebo_gui:=$GAZEBO_GUI initial_xyz:=$INITIAL_XYZ world_file:=$WORLD_FILE"

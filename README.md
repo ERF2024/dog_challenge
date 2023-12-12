@@ -62,7 +62,7 @@ $./start_framework.sh
 
 The first time you call this script it will take a bit longer (~5 minute) because it is going to download  a docker image with  the framework's  code and its dependencies. This image will be downloaded locally. Then, the script spawns the Go1 robot into a maze that will be very similar to the one that you will find at the challenge. 
 
-You can use the script argument `start_framework.sh -w ...` to select and load the maps of the desired track, please check the help options for details.
+You can use the script argument `start_framework.sh -w ...` to select and load another maps or world file, please check the help options for details.
 
 ```bash
 $./start_framework.sh -h
@@ -128,7 +128,7 @@ If you do not have ROS installed in your host machine, you need to install docke
 Then open a terminal and run:
 
 ```bash
-$ docker exec -it wolf-app /bin/bash
+$ docker exec -it wolf-app  /bin/bash
 ```
 
 Now you are inside the docker environment and you can run your nodes (e.g. lauch the rostopic test script). 
@@ -139,7 +139,11 @@ To develop your own code create a ROS workspace folder (e.g. $HOME/ros_ws) and p
 $ ./start_framework.sh -v $HOME/ros_ws
 ```
 
-the folder that will be automatically mounted and visible to docker. 
+the folder that will be automatically mounted and visible to docker if you run:
+
+```bash
+$ docker exec --workdir /home/root -it wolf-app  /bin/bash
+```
 
 
 
