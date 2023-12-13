@@ -55,6 +55,45 @@
       <uri>model://challenge_hole_terrain</uri>
       <pose>-1.92 -5.44 0.017 0 0 1.57</pose>
     </include>
+    <include>
+      <name>stones1</name>
+      <uri>model://cobblestones_2</uri>
+      <pose>-0.81 -8.3 0.01 0 0 0</pose>
+    </include>
+    <include>
+      <name>stones2</name>
+      <uri>model://cobblestones_2</uri>
+      <pose>0.795 -8.3 0.01 0 0 0</pose>
+    </include>
+    <include>
+      <name>rubble</name>
+      <uri>model://challenge_rubble</uri>
+      <pose>2.19 -8.68 0 0 0 0</pose>
+    </include>
+    <plugin filename="libRubblePluginImproved.so" name="rubble_plugin">
+      <bottom_right>2.25 -8.95  0.15</bottom_right>
+      <top_left>2.95 -7.65  0.15</top_left>
+      <min_size>0.05 0.025 0.1</min_size>
+      <max_size>0.1 0.05 0.2</max_size>
+      <min_mass>0.1</min_mass>
+      <max_mass>1.</max_mass>
+      <count>200</count>
+    </plugin>
 
+    <include>
+      <name>foam</name>
+      <uri>model://soft_ground_B</uri>
+      <pose>6.15 -8.3 -0.38 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>ramp1</name>
+      <uri>model://ramp_30</uri>
+      <pose>7.7 -8.3 0.12 0 0 3.1416</pose>
+    </include>
+    <include>
+      <name>ramp2</name>
+      <uri>model://ramp_30</uri>
+      <pose>9.7 -8.3 0.12 0 0 0</pose>
+    </include>
   </world>
 </sdf>

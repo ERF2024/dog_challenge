@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+	<model name="challenge_rubble">
+	  <include>
+      <name>street1</name>
+      <uri>model://pallet770x1000x140mm</uri>
+      <pose>0 0 -0.01 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>street2</name>
+      <uri>model://pallet770x1000x140mm</uri>
+      <pose>0 0.75 -0.01 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>street3</name>
+      <uri>model://pallet770x1000x140mm</uri>
+      <pose>0.99 0 -0.01 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>street4</name>
+      <uri>model://pallet770x1000x140mm</uri>
+      <pose>0.99 0.75 -0.01 0 0 1.57</pose>
+    </include>
+    
+	</model>
+</sdf>
+
