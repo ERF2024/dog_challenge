@@ -172,7 +172,7 @@ To load (in a Gazebo simulator) the  map contained in **worlds/locomotion/locomo
 
 ```
 export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:$HOME/DogChallengeFolder/models
-export GAZEBO_PLUGIN_PATH=$GAZEBO_MODEL_PATH:$HOME/DogChallengeFolder/plugins/lib
+export GAZEBO_PLUGIN_PATH=$GAZEBO_PLUGIN_PATH:$HOME/DogChallengeFolder/plugins/lib
 export GAZEBO_RESOURCE_PATH=$GAZEBO_RESOURCE_PATH:$HOME/DogChallengeFolder/worlds
 ```
 
