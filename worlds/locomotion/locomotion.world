@@ -341,22 +341,22 @@
     <include>
       <name>wall49</name>
       <uri>model://challenge_wall</uri>
-      <pose>8.98 -10.61 0.75 0 0 1.57</pose>
+      <pose>-2.72 -2.63 0.75 0 0 0</pose>
     </include>
     <include>
       <name>wall50</name>
       <uri>model://challenge_wall</uri>
-      <pose>8.98 -12.235 0.75 0 0 1.57</pose>
+      <pose>-2.72 -3.56 0.75 0 0 0</pose>
     </include>
     <include>
       <name>wall51</name>
       <uri>model://challenge_wall</uri>
-      <pose>9.98 -10.61 0.75 0 0 1.57</pose>
+      <pose>-2.13 -2.63 0.75 0 0 0</pose>
     </include>
     <include>
       <name>wall52</name>
       <uri>model://challenge_wall</uri>
-      <pose>9.98 -12.235 0.75 0 0 1.57</pose>
+      <pose>-2.13 -3.56 0.75 0 0 0</pose>
     </include>
   </world>
 </sdf>
