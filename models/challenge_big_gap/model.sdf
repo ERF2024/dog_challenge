@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+	<model name="challenge_big_gap">
+	<include>
+      <name>pallet1</name>
+      <uri>model://pallet770x1000x140mm</uri>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>pallet2</name>
+      <uri>model://pallet770x1000x140mm</uri>
+      <pose>-0.77 0 -0.1 0 0 0</pose>
+    </include>
+    <include>
+      <name>pallet2</name>
+      <uri>model://pallet770x1000x140mm</uri>
+      <pose>-1.54 0 0 0 0 0</pose>
+    </include>
+	</model>
+</sdf>
+
