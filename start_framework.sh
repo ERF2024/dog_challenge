@@ -86,6 +86,10 @@ ROS=noetic
 CONTAINER_NAME="wolf-app"
 IMAGE_TAG="focal"
 ROBOT_MODEL=go1
+MAX_VEL_X=0.6
+MAX_VEL_Y=0.5
+MAX_VEL_Z=0.5
+MAX_VEL_YAW=0.5
 WORLD_FILE=/home/root/dog_challenge/worlds/$WORLD_NAME/$WORLD_NAME.world
 GAZEBO_GUI=true
 SENSORS=true
@@ -137,4 +141,4 @@ docker run --user root:root --hostname $HOSTNAME  --net=$NET --device=/dev/dri:/
 	--volume="/tmp:/tmp:rw" \
 	--volume="$SCRIPTPATH:/home/root/dog_challenge:rw" \
 	--volume="$MOUNTED_CODE_VOLUME:/home/root/ros_ws:rw"\
-        -it $IMAGE_NAME $SHELL -c "source /opt/ros/$ROS/setup.bash; source /opt/xbot/setup.sh; roslaunch wolf_controller wolf_controller_bringup.launch robot_name:=$NAMESPACE robot_model:=$ROBOT_MODEL sensors:=$SENSORS gazebo_gui:=$GAZEBO_GUI initial_xyz:=$INITIAL_XYZ initial_rpy:=$INITIAL_RPY world_file:=$WORLD_FILE"
+        -it $IMAGE_NAME $SHELL -c "source /opt/ros/$ROS/setup.bash; source /opt/xbot/setup.sh; roslaunch wolf_controller wolf_controller_bringup.launch robot_name:=$NAMESPACE robot_model:=$ROBOT_MODEL sensors:=$SENSORS gazebo_gui:=$GAZEBO_GUI initial_xyz:=$INITIAL_XYZ initial_rpy:=$INITIAL_RPY world_file:=$WORLD_FILE max_vel_x:=$MAX_VEL_X max_vel_y:=$MAX_VEL_Y max_vel_z:=$MAX_VEL_Z max_vel_yaw:=$MAX_VEL_YAW"
