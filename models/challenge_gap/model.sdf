@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+	<model name="challenge_gap">
+	<include>
+      <name>pallet1</name>
+      <uri>model://pallet480x1000x140mm</uri>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>pallet2</name>
+      <uri>model://pallet480x1000x140mm</uri>
+      <pose>-0.2 0 -0.02 0 0 0</pose>
+    </include>
+	</model>
+</sdf>
+
