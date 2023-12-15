@@ -48,7 +48,7 @@
     <include>
       <name>hole</name>
       <uri>model://challenge_hole_terrain</uri>
-      <pose>-1.92 -8.64 0.017 0 0 1.57</pose>
+      <pose>-1.52 -12.04 0.017 0 0 1.57</pose>
     </include>
     <include>
       <name>stones1</name>
@@ -101,262 +101,282 @@
     <include>
       <name>wall1</name>
       <uri>model://challenge_wall</uri>
-      <pose>0 0.55 0.75 0 0 1.57</pose>
+      <pose>0 0.55 0.375 0 0 1.57</pose>
     </include>
     <include>
       <name>wall2</name>
       <uri>model://challenge_wall</uri>
-      <pose>0 -0.55 0.75 0 0 1.57</pose>
+      <pose>0 -0.55 0.375 0 0 1.57</pose>
     </include>
     <include>
       <name>wall3</name>
       <uri>model://challenge_wall</uri>
-      <pose>-1 0.55 0.75 0 0 1.57</pose>
+      <pose>-1 0.55 0.375 0 0 1.57</pose>
     </include>
     <include>
       <name>wall4</name>
       <uri>model://challenge_wall</uri>
-      <pose>-1 -0.55 0.75 0 0 1.57</pose>
+      <pose>-1 -0.55 0.375 0 0 1.57</pose>
     </include>
     <include>
       <name>wall5</name>
       <uri>model://challenge_wall</uri>
-      <pose>-2 0.55 0.75 0 0 1.57</pose>
+      <pose>-2 0.55 0.375 0 0 1.57</pose>
     </include>
     <include>
       <name>wall6</name>
       <uri>model://challenge_wall</uri>
-      <pose>-1.42 -0.55 0.75 0 0 1.57</pose>
+      <pose>-1.42 -0.55 0.375 0 0 1.57</pose>
     </include>
     <include>
       <name>wall7</name>
       <uri>model://challenge_wall</uri>
-      <pose>-2.53 0.55 0.75 0 0 1.57</pose>
+      <pose>-2.53 0.55 0.375 0 0 1.57</pose>
     </include>
     <include>
       <name>wall8</name>
       <uri>model://challenge_wall</uri>
-      <pose>-2.97 0 0.75 0 0 0</pose>
+      <pose>-2.97 0 0.375 0 0 0</pose>
     </include>
     <include>
       <name>wall9</name>
       <uri>model://challenge_wall</uri>
-      <pose>-2.97 -1 0.75 0 0 0</pose>
+      <pose>-2.97 -1 0.375 0 0 0</pose>
     </include>
     <include>
       <name>wall10</name>
       <uri>model://challenge_wall</uri>
-      <pose>-2.97 -2 0.75 0 0 0</pose>
+      <pose>-2.97 -2 0.375 0 0 0</pose>
     </include>
     <include>
       <name>wall11</name>
       <uri>model://challenge_wall</uri>
-      <pose>-2.97 -3 0.75 0 0 0</pose>
+      <pose>-2.97 -3 0.375 0 0 0</pose>
     </include>
     <include>
       <name>wall12</name>
       <uri>model://challenge_wall</uri>
-      <pose>-2.97 -4 0.75 0 0 0</pose>
+      <pose>-2.97 -4 0.375 0 0 0</pose>
     </include>
     <include>
       <name>wall13</name>
       <uri>model://challenge_wall</uri>
-      <pose>-2.97 -5 0.75 0 0 0</pose>
+      <pose>-2.97 -5 0.375 0 0 0</pose>
     </include>
     <include>
       <name>wall14</name>
       <uri>model://challenge_wall</uri>
-      <pose>-2.97 -6 0.75 0 0 0</pose>
+      <pose>-2.97 -6 0.375 0 0 0</pose>
     </include>
     <include>
       <name>wall15</name>
       <uri>model://challenge_wall</uri>
-      <pose>-2.97 -7 0.75 0 0 0</pose>
+      <pose>-2.97 -7 0.375 0 0 0</pose>
     </include>
     <include>
       <name>wall16</name>
       <uri>model://challenge_wall</uri>
-      <pose>-2.97 -8 0.75 0 0 0</pose>
+      <pose>-2.97 -8 0.375 0 0 0</pose>
     </include>
     <include>
       <name>wall17</name>
       <uri>model://challenge_wall</uri>
-      <pose>-2.97 -9 0.75 0 0 0</pose>
+      <pose>-2.97 -9 0.375 0 0 0</pose>
     </include>
     <include>
       <name>wall18</name>
       <uri>model://challenge_wall</uri>
-      <pose>-2.97 -10 0.75 0 0 0</pose>
+      <pose>-2.97 -10 0.375 0 0 0</pose>
     </include>
     <include>
       <name>wall19</name>
       <uri>model://challenge_wall</uri>
-      <pose>-1.87 -1 0.75 0 0 0</pose>
+      <pose>-1.87 -1 0.375 0 0 0</pose>
     </include>
     <include>
       <name>wall20</name>
       <uri>model://challenge_wall</uri>
-      <pose>-1.87 -2 0.75 0 0 0</pose>
+      <pose>-1.87 -2 0.375 0 0 0</pose>
     </include>
     <include>
       <name>wall21</name>
       <uri>model://challenge_wall</uri>
-      <pose>-1.87 -3 0.75 0 0 0</pose>
+      <pose>-1.87 -3 0.375 0 0 0</pose>
     </include>
     <include>
       <name>wall22</name>
       <uri>model://challenge_wall</uri>
-      <pose>-1.87 -4 0.75 0 0 0</pose>
+      <pose>-1.87 -4 0.375 0 0 0</pose>
     </include>
     <include>
       <name>wall23</name>
       <uri>model://challenge_wall</uri>
-      <pose>-1.87 -5 0.75 0 0 0</pose>
+      <pose>-1.87 -5 0.375 0 0 0</pose>
     </include>
     <include>
       <name>wall24</name>
       <uri>model://challenge_wall</uri>
-      <pose>-1.87 -6 0.75 0 0 0</pose>
+      <pose>-1.87 -6 0.375 0 0 0</pose>
     </include>
     <include>
       <name>wall25</name>
       <uri>model://challenge_wall</uri>
-      <pose>-1.87 -7 0.75 0 0 0</pose>
+      <pose>-1.87 -7 0.375 0 0 0</pose>
     </include>
     <include>
       <name>wall26</name>
       <uri>model://challenge_wall</uri>
-      <pose>-1.87 -8 0.75 0 0 0</pose>
+      <pose>-1.87 -8 0.375 0 0 0</pose>
     </include>
     <include>
       <name>wall27</name>
       <uri>model://challenge_wall</uri>
-      <pose>-1.87 -9 0.75 0 0 0</pose>
+      <pose>-1.87 -9 0.375 0 0 0</pose>
     </include>
     <include>
       <name>wall28</name>
       <uri>model://challenge_wall</uri>
-      <pose>-1.87 -10 0.75 0 0 0</pose>
+      <pose>-1.87 -10 0.375 0 0 0</pose>
     </include>
     <include>
       <name>wall29</name>
       <uri>model://challenge_wall</uri>
-      <pose>-1.02 -10.61 0.75 0 0 1.57</pose>
+      <pose>-1.02 -10.61 0.375 0 0 1.57</pose>
     </include>
     <include>
       <name>wall30</name>
       <uri>model://challenge_wall</uri>
-      <pose>-1.02 -12.235 0.75 0 0 1.57</pose>
+      <pose>-1.02 -12.235 0.375 0 0 1.57</pose>
     </include>
     <include>
       <name>wall31</name>
       <uri>model://challenge_wall</uri>
-      <pose>-0.02 -10.61 0.75 0 0 1.57</pose>
+      <pose>-0.02 -10.61 0.375 0 0 1.57</pose>
     </include>
     <include>
       <name>wall32</name>
       <uri>model://challenge_wall</uri>
-      <pose>-0.02 -12.235 0.75 0 0 1.57</pose>
+      <pose>-0.02 -12.235 0.375 0 0 1.57</pose>
     </include>
     <include>
       <name>wall33</name>
       <uri>model://challenge_wall</uri>
-      <pose>0.98 -10.61 0.75 0 0 1.57</pose>
+      <pose>0.98 -10.61 0.375 0 0 1.57</pose>
     </include>
     <include>
       <name>wall34</name>
       <uri>model://challenge_wall</uri>
-      <pose>0.98 -12.235 0.75 0 0 1.57</pose>
+      <pose>0.98 -12.235 0.375 0 0 1.57</pose>
     </include>
     <include>
       <name>wall35</name>
       <uri>model://challenge_wall</uri>
-      <pose>1.98 -10.61 0.75 0 0 1.57</pose>
+      <pose>1.98 -10.61 0.375 0 0 1.57</pose>
     </include>
     <include>
       <name>wall36</name>
       <uri>model://challenge_wall</uri>
-      <pose>1.98 -12.235 0.75 0 0 1.57</pose>
+      <pose>1.98 -12.235 0.375 0 0 1.57</pose>
     </include>
     <include>
       <name>wall37</name>
       <uri>model://challenge_wall</uri>
-      <pose>2.98 -10.61 0.75 0 0 1.57</pose>
+      <pose>2.98 -10.61 0.375 0 0 1.57</pose>
     </include>
     <include>
       <name>wall38</name>
       <uri>model://challenge_wall</uri>
-      <pose>2.98 -12.235 0.75 0 0 1.57</pose>
+      <pose>2.98 -12.235 0.375 0 0 1.57</pose>
     </include>
     <include>
       <name>wall39</name>
       <uri>model://challenge_wall</uri>
-      <pose>3.98 -10.61 0.75 0 0 1.57</pose>
+      <pose>3.98 -10.61 0.375 0 0 1.57</pose>
     </include>
     <include>
       <name>wall40</name>
       <uri>model://challenge_wall</uri>
-      <pose>3.98 -12.235 0.75 0 0 1.57</pose>
+      <pose>3.98 -12.235 0.375 0 0 1.57</pose>
     </include>
     <include>
       <name>wall41</name>
       <uri>model://challenge_wall</uri>
-      <pose>4.98 -10.61 0.75 0 0 1.57</pose>
+      <pose>4.98 -10.61 0.375 0 0 1.57</pose>
     </include>
     <include>
       <name>wall42</name>
       <uri>model://challenge_wall</uri>
-      <pose>4.98 -12.235 0.75 0 0 1.57</pose>
+      <pose>4.98 -12.235 0.375 0 0 1.57</pose>
     </include>
     <include>
       <name>wall43</name>
       <uri>model://challenge_wall</uri>
-      <pose>5.98 -10.61 0.75 0 0 1.57</pose>
+      <pose>5.98 -10.61 0.375 0 0 1.57</pose>
     </include>
     <include>
       <name>wall44</name>
       <uri>model://challenge_wall</uri>
-      <pose>5.98 -12.235 0.75 0 0 1.57</pose>
+      <pose>5.98 -12.235 0.375 0 0 1.57</pose>
     </include>
     <include>
       <name>wall45</name>
       <uri>model://challenge_wall</uri>
-      <pose>6.98 -10.61 0.75 0 0 1.57</pose>
+      <pose>6.98 -10.61 0.375 0 0 1.57</pose>
     </include>
     <include>
       <name>wall46</name>
       <uri>model://challenge_wall</uri>
-      <pose>6.98 -12.235 0.75 0 0 1.57</pose>
+      <pose>6.98 -12.235 0.375 0 0 1.57</pose>
     </include>
     <include>
       <name>wall47</name>
       <uri>model://challenge_wall</uri>
-      <pose>7.98 -10.61 0.75 0 0 1.57</pose>
+      <pose>7.98 -10.61 0.375 0 0 1.57</pose>
     </include>
     <include>
       <name>wall48</name>
       <uri>model://challenge_wall</uri>
-      <pose>7.98 -12.235 0.75 0 0 1.57</pose>
+      <pose>7.98 -12.235 0.375 0 0 1.57</pose>
     </include>
     <include>
       <name>wall49</name>
       <uri>model://challenge_wall</uri>
-      <pose>-2.72 -2.63 0.75 0 0 0</pose>
+      <pose>-2.72 -2.63 0.375 0 0 0</pose>
     </include>
     <include>
       <name>wall50</name>
       <uri>model://challenge_wall</uri>
-      <pose>-2.72 -3.56 0.75 0 0 0</pose>
+      <pose>-2.72 -3.56 0.375 0 0 0</pose>
     </include>
     <include>
       <name>wall51</name>
       <uri>model://challenge_wall</uri>
-      <pose>-2.13 -2.63 0.75 0 0 0</pose>
+      <pose>-2.13 -2.63 0.375 0 0 0</pose>
     </include>
     <include>
       <name>wall52</name>
       <uri>model://challenge_wall</uri>
-      <pose>-2.13 -3.56 0.75 0 0 0</pose>
+      <pose>-2.13 -3.56 0.375 0 0 0</pose>
+    </include>
+    <include>
+      <name>wall53</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-1.405 -10.61 0.375 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>wall54</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-2.97 -10.15 0.375 0 0 0</pose>
+    </include>
+    <include>
+      <name>wall55</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-2.6 -11.03 0.375 0 0 0.7854</pose>
+    </include>
+    <include>
+      <name>wall56</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-1.9 -11.73 0.375 0 0 0.7854</pose>
     </include>
   </world>
 </sdf>
