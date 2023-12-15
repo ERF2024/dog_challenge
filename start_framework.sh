@@ -17,7 +17,9 @@ Application Options:
 \n 
 -n,--namespace \tDefine the ROS namespace [default=], example: -n robot_1
 \n 
--w,--world \tWorld name [default=navigation], example: -w navigation"
+-w,--world \tWorld name [default=navigation|locomotion], example: -w navigation
+\n 
+-v,--volume \tMounted folder [default=$HOME/ros_ws], example: -v $HOME/ros_ws"
 
 echo ' 
 ###########################################
@@ -87,7 +89,7 @@ GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/$ROS/share/wolf_gazebo_resources/m
 GAZEBO_RESOURCE_PATH=$GAZEBO_RESOURCE_PATH:/home/root/dog_challenge/worlds
 
 # Checks
-if [[ ( $WORLD_NAME == "navigation") ]] 
+if [[ ( $WORLD_NAME == "navigation") || ( $WORLD_NAME == "locomotion") ]] 
 then 
 	echo "Selected world: $WORLD_NAME"
 else
