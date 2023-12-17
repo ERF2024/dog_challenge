@@ -79,7 +79,7 @@
     <include>
       <name>foam</name>
       <uri>model://soft_ground_B</uri>
-      <pose>6.15 -11.42 -0.38 0 0 1.57</pose>
+      <pose>4.425 -11.42 -0.38 0 0 1.57</pose>
     </include>
     <include>
       <name>ramp1</name>

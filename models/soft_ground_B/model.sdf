@@ -7,7 +7,7 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
-            <size>1.5 5 1</size>
+            <size>1.5 1.5 1</size>
           </box>
         </geometry>
         
@@ -38,7 +38,7 @@
         <cast_shadows>false</cast_shadows>
         <geometry>
           <box>
-            <size>1.5 5 1</size>
+            <size>1.5 1.5 1</size>
           </box>
         </geometry>
         <material>

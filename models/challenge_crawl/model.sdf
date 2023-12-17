@@ -9,7 +9,7 @@
     <include>
       <name>pipe1</name>
       <uri>model://pipe</uri>
-      <pose>0 0 0.4 0 0 0</pose>
+      <pose>0 0 0.43 0 0 0</pose>
     </include>
     <include>
       <name>pipe2</name>
