@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 import re
 
-filepath = "../models/smaze_wall/"
+filepath = "../models/smaze_wall_short/"
 
-scale_factor = 0.5
-f = open(filepath+"model.sdf", "r")
-f2 = open(filepath+"model2.sdf","w")
+scale_factor = 0.33
+f = open(filepath+"model_old.sdf", "r")
+f2 = open(filepath+"model.sdf","w")
 lines = f.readlines()
 for line in lines:
     new_line = line
