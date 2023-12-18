@@ -109,7 +109,7 @@ fi
 if [[ ( $WORLD_NAME == "navigation") ]]
 then 
 	INITIAL_XYZ=[-0.2,-9.8,1.0]
-	INITIAL_RPY=[0.0,0.0,0.0]
+	INITIAL_RPY=[0.0,0.0,-1.14]
 fi
 if [[ ( $WORLD_NAME == "locomotion") ]]
 then

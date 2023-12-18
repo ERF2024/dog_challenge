@@ -102,11 +102,11 @@ There are 5 stereo-cameras on 5 sides of the robot (face,left,right,chin,rearDow
 | ROS Topic             | Description                          | Message type                                                 |
 | --------------------- | ------------------------------------ | ------------------------------------------------------------ |
 | ``/joint_state``      | Joint angles [rad] and rates [rad/s] | [sensor_msgs/JointState](http://docs.ros.org/api/sensor_msgs/html/msg/JointState.html) |
-| ``/point_cloud_left`` | TODO                                 | TODO                                                         |
-| `/point_cloud_right`  | TODO                                 | TODO                                                         |
-| `/point_cloud_front`  | TODO                                 | TODO                                                         |
-| ``/point_cloud_back`` | TODO                                 | TODO                                                         |
-| ``/rslidar_points``   | TODO                                 | TODO                                                         |
+| ``/point_cloud_left`` | Point Cloud                          | [sensor_msgs/PointCloud2](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/PointCloud2.html) |
+| `/point_cloud_right`  | Point Cloud                          | [sensor_msgs/PointCloud2](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/PointCloud2.html) |
+| `/point_cloud_front`  | Point Cloud                          | [sensor_msgs/PointCloud2](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/PointCloud2.html) |
+| ``/point_cloud_back`` | Point Cloud                          | [sensor_msgs/PointCloud2](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/PointCloud2.html) |
+| ``/rslidar_points``   | Point Cloud                          | [sensor_msgs/PointCloud2](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/PointCloud2.html) |
 
 The second step is to develop a planning algorithm that provides the robot with the ability to navigate and move the robot in the environment. The Wolf simulation framework provides a combination of ROS and C++  interfaces to manage these tasks. This section explains these interfaces grouped by type.
 
@@ -156,7 +156,7 @@ $ docker exec --workdir /home/root -it wolf-app  /bin/bash
 
 ### **Locomotion**
 
-The map with of the race (with obstacles) is with the **locomotion.world** file. You can download and check map overview from <a href="doc/map.pdf" download>here</a>. 
+The map with of the race (with obstacles) is with the **locomotion.world** file. You can download and check map overview from <a href="docs/infographics.pdf" download>here</a>. 
 
 The goal is to overpass all obstacles and reach the final destination in the shortest time possible. For details on the rule of the game, refer to the <a href="docs/rule.md">rule page </a> If you want to use the Go1 robot you can use this  [URDF description](https://github.com/graiola/wolf_description). For any clarification please open a Github issue on this repository. 
 
