@@ -108,7 +108,7 @@ fi
 # Set initial pose based on the selected world
 if [[ ( $WORLD_NAME == "navigation") ]]
 then 
-	INITIAL_XYZ=[0.0,0.0,1.0]
+	INITIAL_XYZ=[-0.2,-9.8,1.0]
 	INITIAL_RPY=[0.0,0.0,0.0]
 fi
 if [[ ( $WORLD_NAME == "locomotion") ]]
