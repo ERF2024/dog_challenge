@@ -25,11 +25,11 @@
     </include>
     <include>
       <static>true</static>
-      <pose>-1 -1 -2.7 0 0 0</pose>
+      <pose>-0.5 -0.5 -1.35 0 0 0</pose>
       <uri>model://smaze2d</uri>
     </include>
     <include>
-      <pose>17 20 0 0 0 0</pose>
+      <pose>9.3 9.7 0 0 0 0</pose>
       <uri>model://extinguisher</uri>
     </include>
   </world>
