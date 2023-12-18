@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+	<model name="challenge_narrow">
+	<include>
+      <name>pallet1</name>
+      <uri>model://pallet480x1000x140mm</uri>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>pallet2</name>
+      <uri>model://pallet480x1000x140mm</uri>
+      <pose>-0.48 0 0.0 0 0 0</pose>
+    </include>
+    <include>
+      <name>pallet3</name>
+      <uri>model://pallet480x2000x140mm</uri>
+      <pose>-1.68 0 0 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>pallet4</name>
+      <uri>model://pallet480x1000x140mm</uri>
+      <pose>-2.9 0 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>pallet5</name>
+      <uri>model://pallet480x1000x140mm</uri>
+      <pose>-3.38 0 0 0 0 0</pose>
+    </include>
+	</model>
+</sdf>
+

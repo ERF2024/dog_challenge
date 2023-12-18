@@ -3,11 +3,11 @@
   <model name="smaze_wall_short">
     <static>true</static>
     <link name="link">
-      <pose>0 0 2.5 0 0 0</pose>
+				<pose>0.0 0.0 0.8250000000000001 0.0 0.0 0.0</pose>
       <collision name="collision">
         <geometry>
           <box>
-            <size>4 0.4 5</size>
+				<size>1.32 0.132 1.6500000000000001</size>
           </box>
         </geometry>
       </collision>
@@ -15,7 +15,7 @@
 <!--        <cast_shadows>false</cast_shadows>-->
         <geometry>
           <box>
-            <size>4 0.4 5</size>
+				<size>1.32 0.132 1.6500000000000001</size>
           </box>
         </geometry>
         <material>

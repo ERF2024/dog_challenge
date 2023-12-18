@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+	<model name="challenge_wall">
+    <pose>0 0 0.375 0 0 0</pose>
+    <static>true</static>
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>0.1 1 0.75</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>0.1 1 0.75</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+	</model>
+</sdf>
+

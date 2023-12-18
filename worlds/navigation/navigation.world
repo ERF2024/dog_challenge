@@ -1,6 +1,11 @@
 <?xml version="1.0" ?>
 <sdf version="1.5">
   <world name="default">
+   <gui>
+      <camera name="user_default">
+            <pose>16. 2. 13. 0 0.77 3.12</pose>
+      </camera>
+    </gui>    
      <scene>
       <sky>
         <clouds>
@@ -20,11 +25,11 @@
     </include>
     <include>
       <static>true</static>
-      <pose>-1 -1 -2.7 0 0 0</pose>
+      <pose>-0.9 -10.25 -0.891 0 0 0</pose>
       <uri>model://smaze2d</uri>
     </include>
     <include>
-      <pose>17 20 0 0 0 0</pose>
+      <pose>5.5 -3.5 0 0 0 0</pose>
       <uri>model://extinguisher</uri>
     </include>
   </world>

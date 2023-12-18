@@ -1,1082 +1,387 @@
-<sdf version='1.6'>
-  <world name='default'>
-    <light name='sun' type='directional'>
-      <cast_shadows>1</cast_shadows>
-      <pose frame=''>0 0 10 0 -0 0</pose>
-      <diffuse>0.8 0.8 0.8 1</diffuse>
-      <specular>0.2 0.2 0.2 1</specular>
-      <attenuation>
-        <range>1000</range>
-        <constant>0.9</constant>
-        <linear>0.01</linear>
-        <quadratic>0.001</quadratic>
-      </attenuation>
-      <direction>-0.5 0.1 -0.9</direction>
-    </light>
-    <model name='ground_plane'>
-      <static>1</static>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <plane>
-              <normal>0 0 1</normal>
-              <size>100 100</size>
-            </plane>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_bitmask>65535</collide_bitmask>
-              <ode/>
-            </contact>
-            <friction>
-              <ode>
-                <mu>100</mu>
-                <mu2>50</mu2>
-              </ode>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <visual name='visual'>
-          <cast_shadows>0</cast_shadows>
-          <geometry>
-            <plane>
-              <normal>0 0 1</normal>
-              <size>100 100</size>
-            </plane>
-          </geometry>
-          <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-    </model>
-    <gravity>0 0 -9.8</gravity>
-    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
-    <atmosphere type='adiabatic'/>
-    <physics name='default_physics' default='0' type='ode'>
-      <max_step_size>0.001</max_step_size>
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="default">
+    <physics type='ode'>
+      <gravity>0 0 -9.81</gravity>
+      <!-- max step size has to be a multiple of the desired task rate-->
+      <max_step_size>0.001</max_step_size> 
       <real_time_factor>1</real_time_factor>
-      <real_time_update_rate>1000</real_time_update_rate>
     </physics>
-    <scene>
-      <ambient>0.4 0.4 0.4 1</ambient>
-      <background>0.7 0.7 0.7 1</background>
-      <shadows>1</shadows>
-    </scene>
-    <audio>
-      <device>default</device>
-    </audio>
-    <wind/>
-    <spherical_coordinates>
-      <surface_model>EARTH_WGS84</surface_model>
-      <latitude_deg>0</latitude_deg>
-      <longitude_deg>0</longitude_deg>
-      <elevation>0</elevation>
-      <heading_deg>0</heading_deg>
-    </spherical_coordinates>
-    <model name='asphalt_pallet'>
-      <static>1</static>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <cast_shadows>0</cast_shadows>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <material>
-            <script>
-              <uri>model://asphalt_plane/materials/scripts</uri>
-              <uri>model://asphalt_plane/materials/textures</uri>
-              <name>vrc/asphalt</name>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <pose frame=''>0.234025 -0.046224 0 0 -0 0</pose>
-    </model>
-    <model name='asphalt_pallet_0'>
-      <static>1</static>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <cast_shadows>0</cast_shadows>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <material>
-            <script>
-              <uri>model://asphalt_plane/materials/scripts</uri>
-              <uri>model://asphalt_plane/materials/textures</uri>
-              <name>vrc/asphalt</name>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <pose frame=''>0.710788 -0.049258 0 0 -0 0</pose>
-    </model>
-    <model name='asphalt_pallet_1'>
-      <static>1</static>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <cast_shadows>0</cast_shadows>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <material>
-            <script>
-              <uri>model://asphalt_plane/materials/scripts</uri>
-              <uri>model://asphalt_plane/materials/textures</uri>
-              <name>vrc/asphalt</name>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <pose frame=''>1.21791 -0.078329 0 0 -0 0</pose>
-    </model>
-    <model name='asphalt_pallet_2'>
-      <static>1</static>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <cast_shadows>0</cast_shadows>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <material>
-            <script>
-              <uri>model://asphalt_plane/materials/scripts</uri>
-              <uri>model://asphalt_plane/materials/textures</uri>
-              <name>vrc/asphalt</name>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <pose frame=''>1.10677 -0.048845 0 0 -0 0</pose>
-    </model>
-    <model name='asphalt_pallet_3'>
-      <static>1</static>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <cast_shadows>0</cast_shadows>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <material>
-            <script>
-              <uri>model://asphalt_plane/materials/scripts</uri>
-              <uri>model://asphalt_plane/materials/textures</uri>
-              <name>vrc/asphalt</name>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <pose frame=''>-1.25036 0.094867 0 0 -0 0</pose>
-    </model>
-    <model name='asphalt_pallet_4'>
-      <static>1</static>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <cast_shadows>0</cast_shadows>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <material>
-            <script>
-              <uri>model://asphalt_plane/materials/scripts</uri>
-              <uri>model://asphalt_plane/materials/textures</uri>
-              <name>vrc/asphalt</name>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <pose frame=''>-0.445713 -1.84962 0 0 -0 0</pose>
-    </model>
-    <state world_name='default'>
-      <sim_time>55 625000000</sim_time>
-      <real_time>55 811461733</real_time>
-      <wall_time>1702313762 472265085</wall_time>
-      <iterations>55625</iterations>
-      <model name='asphalt_pallet'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='asphalt_pallet_0'>
-        <pose frame=''>0.9 0 0.05 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>0.9 0 0.05 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='asphalt_pallet_1'>
-        <pose frame=''>0.45 0 0 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>0.45 0 0 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='asphalt_pallet_2'>
-        <pose frame=''>0.446555 -0.000448 0.05 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>0.446555 -0.000448 0.05 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='asphalt_pallet_3'>
-        <pose frame=''>0.9 0 0 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>0.9 0 0 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='asphalt_pallet_4'>
-        <pose frame=''>0.9 0 0.1 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>0.9 0 0.1 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='asphalt_pallet_5'>
-        <pose frame=''>1.35 0 0.1 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>1.35 0 0.1 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='asphalt_pallet_5_clone'>
-        <pose frame=''>1.8 0 0.1 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>1.8 0 0.1 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='asphalt_pallet_5_clone_clone'>
-        <pose frame=''>2.27623 0.422107 0.1 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>2.27623 0.422107 0.1 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='asphalt_pallet_5_clone_clone_0'>
-        <pose frame=''>2.74907 0.725266 0.1 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>2.74907 0.725266 0.1 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='asphalt_pallet_5_clone_clone_1'>
-        <pose frame=''>3.20856 1.3 0.1 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>3.20856 1.3 0.1 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='asphalt_pallet_5_clone_clone_1_clone'>
-        <pose frame=''>2.27368 1.3 0.1 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>2.27368 1.3 0.1 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='asphalt_pallet_5_clone_clone_1_clone_0'>
-        <pose frame=''>2.73741 1.3 0.1 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>2.73741 1.3 0.1 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='asphalt_pallet_6'>
-        <pose frame=''>2.75 3.35 0.05 0 -0 1.57</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>2.75 3.35 0.05 0 -0 1.57</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='asphalt_pallet_6_clone'>
-        <pose frame=''>2.75 3.82 0.05 0 -0 1.57</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>2.75 3.82 0.05 0 -0 1.57</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='asphalt_pallet_7'>
-        <pose frame=''>2.9 5 0.05 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>2.9 5 0.05 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='asphalt_pallet_7_clone'>
-        <pose frame=''>2.45 5 0.05 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>2.45 5 0.05 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='ground_plane'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='pallet145mm'>
-        <pose frame=''>2.75 2.7 0.04 0 -0 1.57</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>2.75 2.7 0.1 0 -0 1.57</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <light name='sun'>
-        <pose frame=''>0 0 10 0 -0 0</pose>
-      </light>
-    </state>
-    <model name='asphalt_pallet_5'>
-      <static>1</static>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <cast_shadows>0</cast_shadows>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <material>
-            <script>
-              <uri>model://asphalt_plane/materials/scripts</uri>
-              <uri>model://asphalt_plane/materials/textures</uri>
-              <name>vrc/asphalt</name>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <pose frame=''>1.36937 0.074389 0 0 -0 0</pose>
-    </model>
-    <model name='asphalt_pallet_5_clone'>
-      <static>1</static>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <cast_shadows>0</cast_shadows>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <material>
-            <script>
-              <uri>model://asphalt_plane/materials/scripts</uri>
-              <uri>model://asphalt_plane/materials/textures</uri>
-              <name>vrc/asphalt</name>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <pose frame=''>1.82734 0.001099 0.1 0 -0 0</pose>
-    </model>
-    <model name='asphalt_pallet_5_clone_clone'>
-      <static>1</static>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <cast_shadows>0</cast_shadows>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <material>
-            <script>
-              <uri>model://asphalt_plane/materials/scripts</uri>
-              <uri>model://asphalt_plane/materials/textures</uri>
-              <name>vrc/asphalt</name>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <pose frame=''>2.27623 0.422107 0.1 0 -0 0</pose>
-    </model>
-    <model name='asphalt_pallet_5_clone_clone_0'>
-      <static>1</static>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <cast_shadows>0</cast_shadows>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <material>
-            <script>
-              <uri>model://asphalt_plane/materials/scripts</uri>
-              <uri>model://asphalt_plane/materials/textures</uri>
-              <name>vrc/asphalt</name>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <pose frame=''>2.74907 0.725266 0.1 0 -0 0</pose>
-    </model>
-    <model name='asphalt_pallet_5_clone_clone_1'>
-      <static>1</static>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <cast_shadows>0</cast_shadows>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <material>
-            <script>
-              <uri>model://asphalt_plane/materials/scripts</uri>
-              <uri>model://asphalt_plane/materials/textures</uri>
-              <name>vrc/asphalt</name>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <pose frame=''>3.20856 1.32821 0.1 0 -0 0</pose>
-    </model>
-    <model name='asphalt_pallet_5_clone_clone_1_clone'>
-      <static>1</static>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <cast_shadows>0</cast_shadows>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <material>
-            <script>
-              <uri>model://asphalt_plane/materials/scripts</uri>
-              <uri>model://asphalt_plane/materials/textures</uri>
-              <name>vrc/asphalt</name>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <pose frame=''>2.27368 1.31111 0.1 0 -0 0</pose>
-    </model>
-    <model name='asphalt_pallet_5_clone_clone_1_clone_0'>
-      <static>1</static>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <cast_shadows>0</cast_shadows>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <material>
-            <script>
-              <uri>model://asphalt_plane/materials/scripts</uri>
-              <uri>model://asphalt_plane/materials/textures</uri>
-              <name>vrc/asphalt</name>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <pose frame=''>2.73741 1.24625 0.1 0 -0 0</pose>
-    </model>
-    <model name='pallet145mm'>
-      <static>1</static>
-      <link name='link'>
-        <pose frame=''>0 0 0.06 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>model://pallet145mm/mesh/pallet.dae</uri>
-              <scale>0.787 16 1.647</scale>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>model://pallet145mm/mesh/pallet.dae</uri>
-              <scale>0.787 16 1.647</scale>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <pose frame=''>2.4481 2.99039 0 0 -0 0</pose>
-    </model>
-    <model name='asphalt_pallet_6'>
-      <static>1</static>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <cast_shadows>0</cast_shadows>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <material>
-            <script>
-              <uri>model://asphalt_plane/materials/scripts</uri>
-              <uri>model://asphalt_plane/materials/textures</uri>
-              <name>vrc/asphalt</name>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <pose frame=''>2.80252 4.14916 0 0 -0 0</pose>
-    </model>
-    <model name='asphalt_pallet_6_clone'>
-      <static>1</static>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <cast_shadows>0</cast_shadows>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <material>
-            <script>
-              <uri>model://asphalt_plane/materials/scripts</uri>
-              <uri>model://asphalt_plane/materials/textures</uri>
-              <name>vrc/asphalt</name>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <pose frame=''>2.7457 3.8201 0.051652 0 -0 1.57</pose>
-    </model>
-    <model name='asphalt_pallet_7'>
-      <static>1</static>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <cast_shadows>0</cast_shadows>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <material>
-            <script>
-              <uri>model://asphalt_plane/materials/scripts</uri>
-              <uri>model://asphalt_plane/materials/textures</uri>
-              <name>vrc/asphalt</name>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <pose frame=''>2.92318 5.02795 0 0 -0 0</pose>
-    </model>
-    <model name='asphalt_pallet_7_clone'>
-      <static>1</static>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <cast_shadows>0</cast_shadows>
-          <geometry>
-            <box>
-              <size>0.48 2 0.14</size>
-            </box>
-          </geometry>
-          <material>
-            <script>
-              <uri>model://asphalt_plane/materials/scripts</uri>
-              <uri>model://asphalt_plane/materials/textures</uri>
-              <name>vrc/asphalt</name>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <pose frame=''>2.42878 5.00604 0.05 0 -0 0</pose>
-    </model>
-    <gui fullscreen='0'>
-      <camera name='user_camera'>
-        <pose frame=''>-4.2031 7.87749 7.56737 0 0.719647 -0.679897</pose>
-        <view_controller>orbit</view_controller>
-        <projection_type>perspective</projection_type>
-      </camera>
-    </gui>
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <!-- A ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <include>
+      <name>stairs</name>
+      <uri>model://challenge_stairs</uri>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>big_gap</name>
+      <uri>model://challenge_big_gap</uri>
+      <pose>-1 0 0.01 0 0 0</pose>
+    </include>
+    <include>
+      <name>gap</name>
+      <uri>model://challenge_gap</uri>
+      <pose>-2.42 -0.73 0.01 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>narrow</name>
+      <uri>model://challenge_narrow</uri>
+      <pose>-2.42 -1.4 -0.011 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>crawl</name>
+      <uri>model://challenge_crawl</uri>
+      <pose>-2.42 -5.2 -0.011 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>tunnel</name>
+      <uri>model://challenge_tunnel</uri>
+      <pose>-2.42 -5.68 0 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>hole</name>
+      <uri>model://challenge_hole_terrain</uri>
+      <pose>-1.52 -12.04 0.017 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>stones1</name>
+      <uri>model://cobblestones_2</uri>
+      <pose>-0.81 -11.42 0.01 0 0 0</pose>
+    </include>
+    <include>
+      <name>stones2</name>
+      <uri>model://cobblestones_2</uri>
+      <pose>0.795 -11.42 0.01 0 0 0</pose>
+    </include>
+    <include>
+      <name>rubble</name>
+      <uri>model://challenge_rubble</uri>
+      <pose>2.19 -11.8 0 0 0 0</pose>
+    </include>
+
+    <plugin filename="libRubblePluginImproved.so" name="rubble_plugin">
+      <bottom_right>2.25 -12.07  0.15</bottom_right>
+      <top_left>2.95 -10.77  0.15</top_left>
+      <min_size>0.05 0.025 0.1</min_size>
+      <max_size>0.1 0.05 0.2</max_size>
+      <min_mass>0.1</min_mass>
+      <max_mass>1.</max_mass>
+      <count>200</count>
+    </plugin>
+
+    <include>
+      <name>foam</name>
+      <uri>model://soft_ground_B</uri>
+      <pose>4.425 -11.42 -0.38 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>ramp1</name>
+      <uri>model://ramp_30</uri>
+      <pose>5 -11.42 -0.5 0 0 3.1416</pose>
+    </include>
+    <include>
+      <name>ramp2</name>
+      <uri>model://ramp_30</uri>
+      <pose>7 -11.42 -0.5 0 0 0</pose>
+    </include>
+    <include>
+      <name>set_of_ramps1</name>
+      <uri>model://challenge_set_of_ramps</uri>
+      <pose>7.795 -11.4 0.12 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>set_of_ramps2</name>
+      <uri>model://challenge_set_of_ramps</uri>
+      <pose>7.795 -12.2 0.12 0 0 1.57</pose>
+    </include>
+
+    <!-- WALLS -->
+    <include>
+      <name>wall1</name>
+      <uri>model://challenge_wall</uri>
+      <pose>0 0.55 0.375 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>wall2</name>
+      <uri>model://challenge_wall</uri>
+      <pose>0 -0.55 0.375 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>wall3</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-1 0.55 0.375 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>wall4</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-1 -0.55 0.375 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>wall5</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-2 0.55 0.375 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>wall6</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-1.42 -0.55 0.375 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>wall7</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-2.53 0.55 0.375 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>wall8</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-2.97 0 0.375 0 0 0</pose>
+    </include>
+    <include>
+      <name>wall9</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-2.97 -1 0.375 0 0 0</pose>
+    </include>
+    <include>
+      <name>wall10</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-2.97 -2 0.375 0 0 0</pose>
+    </include>
+    <include>
+      <name>wall11</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-2.97 -3 0.375 0 0 0</pose>
+    </include>
+    <include>
+      <name>wall12</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-2.97 -4 0.375 0 0 0</pose>
+    </include>
+    <include>
+      <name>wall13</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-2.97 -5 0.375 0 0 0</pose>
+    </include>
+    <include>
+      <name>wall14</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-2.97 -6 0.375 0 0 0</pose>
+    </include>
+    <include>
+      <name>wall15</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-2.97 -7 0.375 0 0 0</pose>
+    </include>
+    <include>
+      <name>wall16</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-2.97 -8 0.375 0 0 0</pose>
+    </include>
+    <include>
+      <name>wall17</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-2.97 -9 0.375 0 0 0</pose>
+    </include>
+    <include>
+      <name>wall18</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-2.97 -10 0.375 0 0 0</pose>
+    </include>
+    <include>
+      <name>wall19</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-1.87 -1 0.375 0 0 0</pose>
+    </include>
+    <include>
+      <name>wall20</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-1.87 -2 0.375 0 0 0</pose>
+    </include>
+    <include>
+      <name>wall21</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-1.87 -3 0.375 0 0 0</pose>
+    </include>
+    <include>
+      <name>wall22</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-1.87 -4 0.375 0 0 0</pose>
+    </include>
+    <include>
+      <name>wall23</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-1.87 -5 0.375 0 0 0</pose>
+    </include>
+    <include>
+      <name>wall24</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-1.87 -6 0.375 0 0 0</pose>
+    </include>
+    <include>
+      <name>wall25</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-1.87 -7 0.375 0 0 0</pose>
+    </include>
+    <include>
+      <name>wall26</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-1.87 -8 0.375 0 0 0</pose>
+    </include>
+    <include>
+      <name>wall27</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-1.87 -9 0.375 0 0 0</pose>
+    </include>
+    <include>
+      <name>wall28</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-1.87 -10 0.375 0 0 0</pose>
+    </include>
+    <include>
+      <name>wall29</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-1.02 -10.61 0.375 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>wall30</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-1.02 -12.235 0.375 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>wall31</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-0.02 -10.61 0.375 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>wall32</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-0.02 -12.235 0.375 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>wall33</name>
+      <uri>model://challenge_wall</uri>
+      <pose>0.98 -10.61 0.375 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>wall34</name>
+      <uri>model://challenge_wall</uri>
+      <pose>0.98 -12.235 0.375 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>wall35</name>
+      <uri>model://challenge_wall</uri>
+      <pose>1.98 -10.61 0.375 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>wall36</name>
+      <uri>model://challenge_wall</uri>
+      <pose>1.98 -12.235 0.375 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>wall37</name>
+      <uri>model://challenge_wall</uri>
+      <pose>2.98 -10.61 0.375 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>wall38</name>
+      <uri>model://challenge_wall</uri>
+      <pose>2.98 -12.235 0.375 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>wall39</name>
+      <uri>model://challenge_wall</uri>
+      <pose>3.98 -10.61 0.375 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>wall40</name>
+      <uri>model://challenge_wall</uri>
+      <pose>3.98 -12.235 0.375 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>wall41</name>
+      <uri>model://challenge_wall</uri>
+      <pose>4.98 -10.61 0.375 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>wall42</name>
+      <uri>model://challenge_wall</uri>
+      <pose>4.98 -12.235 0.375 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>wall43</name>
+      <uri>model://challenge_wall</uri>
+      <pose>5.98 -10.61 0.375 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>wall44</name>
+      <uri>model://challenge_wall</uri>
+      <pose>5.98 -12.235 0.375 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>wall45</name>
+      <uri>model://challenge_wall</uri>
+      <pose>6.98 -10.61 0.375 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>wall46</name>
+      <uri>model://challenge_wall</uri>
+      <pose>6.98 -12.235 0.375 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>wall47</name>
+      <uri>model://challenge_wall</uri>
+      <pose>7.98 -10.61 0.375 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>wall48</name>
+      <uri>model://challenge_wall</uri>
+      <pose>7.98 -12.235 0.375 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>wall49</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-2.72 -2.63 0.375 0 0 0</pose>
+    </include>
+    <include>
+      <name>wall50</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-2.72 -3.56 0.375 0 0 0</pose>
+    </include>
+    <include>
+      <name>wall51</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-2.13 -2.63 0.375 0 0 0</pose>
+    </include>
+    <include>
+      <name>wall52</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-2.13 -3.56 0.375 0 0 0</pose>
+    </include>
+    <include>
+      <name>wall53</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-1.405 -10.61 0.375 0 0 1.57</pose>
+    </include>
+    <include>
+      <name>wall54</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-2.97 -10.15 0.375 0 0 0</pose>
+    </include>
+    <include>
+      <name>wall55</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-2.6 -11.03 0.375 0 0 0.7854</pose>
+    </include>
+    <include>
+      <name>wall56</name>
+      <uri>model://challenge_wall</uri>
+      <pose>-1.9 -11.73 0.375 0 0 0.7854</pose>
+    </include>
   </world>
 </sdf>
