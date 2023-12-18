@@ -53,6 +53,13 @@ This repository provides framework and the URDF for the challenge for simulation
 
 For the teams that are enrolled in the navigation track, we provide a simulation framework.  To use it we provide a framework designed by Gennaro Raiola called <a href="https://github.com/graiola/wolf-setup.git">Wolf </a> .
 
+- Before downloading the framework you need to install docker.
+
+
+```
+$ ./scripts/install_docker.sh
+```
+
 - To use the framework you need just to launch this script in the root folder of this repository:
 
 
@@ -62,10 +69,10 @@ $./start_framework.sh
 
 The first time you call this script it will take a bit longer (~5 minute) because it is going to download  a docker image with  the framework's  code and its dependencies. This image will be downloaded locally. Then, the script spawns the Go1 robot into a maze that will be very similar to the one that you will find at the challenge. 
 
-You can use the script argument `start_framework.sh -w ...` to select and load another maps or world file, please check the help options for details.
+You can use the script argument `start_framework.sh -w ...` to select and load another .world file, located in the world folder, please check the help options for details.
 
 ```bash
-$./start_framework.sh -h
+$./start_framework.sh -w [e.g. locomotion]
 ```
 
 The goal of this challenge is to explore a maze and detect artifacts (e.g. a fire extinguisher) in the shortest time possible and correctly report where these artifacts are located. In order to do this, you need to first to develop:
