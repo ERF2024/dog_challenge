@@ -158,7 +158,7 @@ $ docker exec --workdir /home/root -it wolf-app  /bin/bash
 
 The map with of the race (with obstacles) is with the **locomotion.world** file. You can download and check map overview from <a href="docs/infographics.pdf" download>here</a>. 
 
-The goal is to overpass all obstacles and reach the final destination in the shortest time possible. For details on the rule of the game, refer to the <a href="docs/rules.md">rule page </a> If you want to use the Go1 robot you can use this  [URDF description](https://github.com/graiola/wolf_description). For any clarification please open a Github issue on this repository. 
+The goal is to overpass all obstacles and reach the final destination in the shortest time possible. For details on the rule of the game, refer to the <a href="docs/rules.md">rule page </a> If you want to use the Go1 robot you can use this  [URDF description](https://github.com/graiola/wolf_descriptions). For any clarification please open a Github issue on this repository. 
 
 The obstacles are of different nature and are designed to test different robot capabilities:
 
