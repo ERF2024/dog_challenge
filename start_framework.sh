@@ -109,7 +109,7 @@ fi
 if [[ ( $WORLD_NAME == "navigation") ]]
 then 
 	INITIAL_XYZ=[-0.2,-9.8,1.0]
-	INITIAL_RPY=[0.0,0.0,-1.14]
+	INITIAL_RPY=[0.0,0.0,0]
 fi
 if [[ ( $WORLD_NAME == "locomotion") ]]
 then
@@ -127,6 +127,10 @@ if [ `sudo systemctl is-active docker` = "inactive" ]; then
   echo "Docker inactive. Starting docker..."
   sudo systemctl start docker
 fi
+
+
+#be sure there is no update on the image
+docker pull $IMAGE_NAME
 
 # Cleanup the docker container before launching it
 docker rm -f $CONTAINER_NAME > /dev/null 2>&1 || true 
