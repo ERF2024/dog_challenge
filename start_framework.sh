@@ -91,6 +91,9 @@ GAZEBO_GUI=true
 SENSORS=true
 INITIAL_XYZ=[0.0,0.0,1.0]
 INITIAL_RPY=[0.0,0.0,0.0]
+MAX_VEL_X=0.7
+MAX_VEL_Y=0.5
+MAX_VEL_YAW=0.5
 NET=host
 GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/$ROS/share/wolf_gazebo_resources/models/:/home/root/dog_challenge/models
 GAZEBO_RESOURCE_PATH=$GAZEBO_RESOURCE_PATH:/home/root/dog_challenge/worlds/$WORLD_NAME
@@ -110,11 +113,13 @@ if [[ ( $WORLD_NAME == "navigation") ]]
 then 
 	INITIAL_XYZ=[-0.2,-9.8,1.0]
 	INITIAL_RPY=[0.0,0.0,0]
+	MAX_VEL_X=0.7
 fi
 if [[ ( $WORLD_NAME == "locomotion") ]]
 then
 	INITIAL_XYZ=[1.0,0.0,1.0]
 	INITIAL_RPY=[0.0,0.0,-3.14]
+	MAX_VEL_X=0.5
 fi
 
 # Define the image name
@@ -141,4 +146,4 @@ docker run --user root:root --hostname $HOSTNAME  --net=$NET --device=/dev/dri:/
 	--volume="/tmp:/tmp:rw" \
 	--volume="$SCRIPTPATH:/home/root/dog_challenge:rw" \
 	--volume="$MOUNTED_CODE_VOLUME:/home/root/ros_ws:rw"\
-        -it $IMAGE_NAME $SHELL -c "source /opt/ros/$ROS/setup.bash; source /opt/xbot/setup.sh; roslaunch wolf_controller wolf_controller_bringup.launch robot_name:=$NAMESPACE robot_model:=$ROBOT_MODEL sensors:=$SENSORS gazebo_gui:=$GAZEBO_GUI initial_xyz:=$INITIAL_XYZ initial_rpy:=$INITIAL_RPY world_file:=$WORLD_FILE"
+        -it $IMAGE_NAME $SHELL -c "source /opt/ros/$ROS/setup.bash; source /opt/xbot/setup.sh; roslaunch wolf_controller wolf_controller_bringup.launch robot_name:=$NAMESPACE robot_model:=$ROBOT_MODEL sensors:=$SENSORS gazebo_gui:=$GAZEBO_GUI initial_xyz:=$INITIAL_XYZ initial_rpy:=$INITIAL_RPY world_file:=$WORLD_FILE max_vel_x:=$MAX_VEL_X max_vel_y:=$MAX_VEL_Y max_vel_yaw:=$MAX_VEL_YAW"
