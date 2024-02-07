@@ -13,7 +13,7 @@
     </include>
     <include>
       <name>pallet3</name>
-      <uri>model://pallet480x2000x140mm</uri>
+      <uri>model://pallet250x2000x140mm</uri>
       <pose>-1.68 0 0 0 0 1.57</pose>
     </include>
     <include>

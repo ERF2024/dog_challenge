@@ -343,7 +343,7 @@
       <uri>model://challenge_wall</uri>
       <pose>7.98 -12.235 0.375 0 0 1.57</pose>
     </include>
-    <include>
+    <!-- <include>
       <name>wall49</name>
       <uri>model://challenge_wall</uri>
       <pose>-2.72 -2.63 0.375 0 0 0</pose>
@@ -362,7 +362,7 @@
       <name>wall52</name>
       <uri>model://challenge_wall</uri>
       <pose>-2.13 -3.56 0.375 0 0 0</pose>
-    </include>
+    </include> -->
     <include>
       <name>wall53</name>
       <uri>model://challenge_wall</uri>
