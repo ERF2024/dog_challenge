@@ -1,0 +1,27 @@
+<launch>
+
+  <!-- ARGUMENTS -->
+  <arg name="robot_name" default=""/>
+  <arg name="robot_model" default=""/>
+  <arg name="sensors" default=""/>
+  <arg name="gazebo_gui" default=""/>
+  <arg name="initial_xyz" default=""/>
+  <arg name="initial_rpy" default=""/>
+  <arg name="world_file" default=""/>
+  
+  <!-- REMAPPING -->
+  <remap from="$(arg robot_name)/rslidar_points" to="$(arg robot_name)/points_raw" />
+  <remap from="$(arg robot_name)/wolf_controller/twist" to="$(arg robot_name)/cmd_vel" />
+  
+  <!-- LAUNCH! -->
+  <include file="$(find wolf_controller)/launch/wolf_controller_bringup.launch">
+  	<arg name="robot_name" value="$(arg robot_name)"/>
+  	<arg name="robot_model" value="$(arg robot_model)"/>
+  	<arg name="sensors" value="$(arg sensors)"/>
+  	<arg name="gazebo_gui" value="$(arg gazebo_gui)"/>
+  	<arg name="initial_xyz" value="$(arg initial_xyz)"/>
+  	<arg name="initial_rpy" value="$(arg initial_rpy)"/>
+  	<arg name="world_file" value="$(arg world_file)"/>
+  </include>
+  
+</launch>

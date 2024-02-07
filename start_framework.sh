@@ -135,10 +135,10 @@ docker pull $IMAGE_NAME
 # Cleanup the docker container before launching it
 docker rm -f $CONTAINER_NAME > /dev/null 2>&1 || true 
 
-docker run --user root:root --hostname $HOSTNAME  --net=$NET --device=/dev/dri:/dev/dri --privileged -e "QT_X11_NO_MITSHM=1" -e GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH -e GAZEBO_RESOURCE_PATH=$GAZEBO_RESOURCE_PATH -e SHELL -e DISPLAY -e DOCKER=1  --name $CONTAINER_NAME \
+docker run --user root:root --hostname $HOSTNAME --net=$NET --device=/dev/dri:/dev/dri --privileged -e "QT_X11_NO_MITSHM=1" -e GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH -e GAZEBO_RESOURCE_PATH=$GAZEBO_RESOURCE_PATH -e SHELL -e DISPLAY -e DOCKER=1  --name $CONTAINER_NAME \
 	--gpus all \
 	--device=/dev/ttyUSB0 \
 	--volume="/tmp:/tmp:rw" \
 	--volume="$SCRIPTPATH:/home/root/dog_challenge:rw" \
 	--volume="$MOUNTED_CODE_VOLUME:/home/root/ros_ws:rw"\
-        -it $IMAGE_NAME $SHELL -c "source /opt/ros/$ROS/setup.bash; source /opt/xbot/setup.sh; roslaunch wolf_controller wolf_controller_bringup.launch robot_name:=$NAMESPACE robot_model:=$ROBOT_MODEL sensors:=$SENSORS gazebo_gui:=$GAZEBO_GUI initial_xyz:=$INITIAL_XYZ initial_rpy:=$INITIAL_RPY world_file:=$WORLD_FILE"
+        -it $IMAGE_NAME $SHELL -c "source /opt/ros/$ROS/setup.bash; source /opt/xbot/setup.sh; roslaunch /home/root/dog_challenge/launch/start_framework.launch robot_name:=$NAMESPACE robot_model:=$ROBOT_MODEL sensors:=$SENSORS gazebo_gui:=$GAZEBO_GUI initial_xyz:=$INITIAL_XYZ initial_rpy:=$INITIAL_RPY world_file:=$WORLD_FILE"
