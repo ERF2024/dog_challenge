@@ -1,5 +1,9 @@
 Inserire pacchetti "realsense_gazebo_plugin" e "realsense-ros" (realsense2_description e realsense2_camera) nella ROS workspace contenente il package (ambiente di simulazione) "unitree_ros".
 
+Installare i seguenti pacchetti ROS, per garantire il funzionamento del Lidar:
+"sudo apt get install ros-<distro>-pointcloud-to-laserscan"
+"sudo apt get install ros-<distro>-velodyne-simulator"
+
 Effettuare il build tramite "catkin_make".
 
 Aggiungere l'urdf fornito "go1.urdf.xacro" in "/unitree_ros/robots/go1_description/xacro".
