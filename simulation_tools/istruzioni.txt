@@ -1,0 +1,25 @@
+Inserire pacchetti "realsense_gazebo_plugin" e "realsense-ros" (realsense2_description e realsense2_camera) nella ROS workspace contenente il package (ambiente di simulazione) "unitree_ros".
+
+Effettuare il build tramite "catkin_make".
+
+Aggiungere l'urdf fornito "go1.urdf.xacro" in "/unitree_ros/robots/go1_description/xacro".
+
+Sovrascrivere "normal.launch", presente in /unitree_ros/unitree_gazebo/launch, con il nuovo "normal.launch" file fornito.
+
+Per quanto riguarda la simulazione, i topic relativi alle camere sono:
+
+Camera frontale realsense montata sopra il Lidar  -> "/camera/color/image_raw"
+Camera frontale integrata nel Go1  -> "/camera_face/color/image_raw"
+Camera sinistra integrata nel Go1  -> "/camera_left/color/image_raw"
+Camera destra integrata nel Go1  -> "/camera_right/color/image_raw"
+Camera mento integrata nel Go1  -> "/camera_chin/color/image_raw"
+Camera addome integrata nel Go1  -> "/camera_rearDown/color/image_raw"
+
+Mentre i topic relativi al Lidar sono:
+
+PointCloud -> "/velodyne_points"
+Scan -> "/velodyne_scan"
+
+Dopo aver inserito "locomotion.world" in "/unitree_ros/unitree_gazebo/worlds", eseguire:
+
+"roslaunch unitree_gazebo normal.launch rname:=go1 wname:=locomotion"
