@@ -75,15 +75,30 @@ You can use the script argument `start_framework.sh -w ...` to select and load a
 $./start_framework.sh -w [e.g. locomotion]
 ```
 
-The goal of this challenge is to explore a maze and detect artifacts (e.g. a fire extinguisher) in the shortest time possible and correctly report where these artifacts are located. In order to do this, you need to first to develop:
+The goal of this challenge is to explore a maze and detect 4 artifacts in the shortest time possible.
+The artifacts to be detected are:
+
+* 2 unkown objects that are part of the COCO Dataset [https://cocodataset.org/#explore](https://cocodataset.org/#explore).
+
+* A fire extinguisher
+
+  <img src="images/extinguisher.jpg" width="300"/>
+
+* The padel racket "Bullpadel Ionic Power 2022"
+
+  <img src="images/padel_racket.jpeg" width="200"/>
+ 
+In order to do this, you need to first to develop:
 
 1. An accurate mapping and localization (SLAM) framework that tells us where we are.
 
-2. A perception system that can recognize artifacts. The first object you need to find is a fire extinguisher as in the picture<img src="images/extinguisher.jpg" width="300"/>
-
-    
+2. A perception system that can recognize the artifacts.     
 
 The control of  a  team encompasses the access to each robot's sensors and actuators. The framework provides you access to the odometry and the perception capabilities of the robot to get information on the environment.
+
+Furthermore, a logger will be provided from Eagle Projects to store at each object detection:
+1. the timestamp
+2. the class of the detected object
 
 #### Sensors:
 

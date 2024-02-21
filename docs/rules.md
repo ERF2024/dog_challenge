@@ -1,53 +1,68 @@
----
+# ERF Dog Challenge Rule
+The Dog Challenge consists of two "sub-challenges.": *Locomotion* and *Navigation*.
 
-The Dog Challenge consists of two "sub-challenges." If a team participates in both challenges, their ultimate ranking will be determined by the total score they earn in both sub-challenges. In the case of the Locomotion track (challenge 2), the robot is meant to be tele-operated. However, if the robot successfully completes the challenge in a fully autonomous manner, a x2 score multiplication factor will be applied. The score for each obstacle is determined based on its objective difficulty. The time to accomplish the task will also be an evaluation factor.  For the Navigation Track (challenge 2), the final score is calculated by summing the points earned for each object, with the objective difficulty in the object detection determining the number of points received. The time taken to complete the task will also be evaluated.
+A team can participate to only one of the two sub-challenges.
+If a team participates in both challenges, their ultimate ranking will be determined by the total score they earn in both sub-challenges. 
+The winner of each sub-challenge will win a prize of 1.000 €, while the winner of the toatl challenge (the team with the higher ranking) will win a Unitree Go1 Edu.
+
+
+If a team participates in both challenges, their ultimate ranking will be determined by the total score they earn in both sub-challenges. 
+
+For the Navigation Track (challenge 2), the final score is calculated by summing the points earned for each object, with the objective difficulty in the object detection determining the number of points received. The time taken to complete the task will also be evaluated.
+
+
+In the case of the Navigation track (challenge 2), the robot is meant to be tele-operated. However, if the robot successfully completes the challenge in a fully autonomous manner, a x2 score multiplication factor will be applied. The score for each obstacle is determined based on its objective difficulty. The time to accomplish the task will also be an evaluation factor.  
 
  **Challenge 1 (Locomotion Track).** 
 
-The aim of this challenge is to test the robot's ability to navigate various obstacles from  a point A to point B along a designated path in the shortest time possible.
+The aim of this challenge is to test the robot's ability to navigate various obstacles from  a point A to point B along a designated path.
 
-· The arena is enclosed by walls, preventing the robot from exiting. 
+* The arena is enclosed by walls, preventing the robot from exiting. 
 
-· Participants are provided with a 3D map of the arena when they enrol in the challenge.
+* Participants are provided with a 3D map of the arena when they enrol in the challenge.
 
-· There is a predefined path to follow that involves overcoming obstacles of different levels of difficulty. 
+* There is a predefined path to follow that involves overcoming obstacles of different levels of difficulty. 
 
-· Some obstacles like stepping stones, debris, and pieces of furniture, are strategically distributed to challenge the robot’s ability to navigate.
+* Some obstacles like stepping stones, debris, and pieces of furniture, are strategically distributed to challenge the robot’s ability to navigate.
 
-· Other obstacles include stairs, ramps with different slopes, tunnels, slippery terrain, and soft terrain (such as foam). Some obstacles require specific abilities, such as crawling under a low bar or jumping over a high step.
+* Other obstacles include stairs, ramps with different slopes, tunnels, slippery terrain, and soft terrain (such as foam). Some obstacles require specific abilities, such as crawling under a low bar or jumping over a high step.
 
-· Penalties are given if an obstacle is skipped or if there are collisions with the robot's body. However, collisions with any part of the leg (such as the shin) do not result in penalties.
+* A score is associated to each obstacle (see obstacle_score.md)
 
-· If the robot touches the walls, there is a time penalty (10s) 
+* The judging committee will evaluate the percentage of completion of each task (0% up to full score)
 
-· If the robot falls, it needs to restart from the beginning of the circuit. 
+* The scores of the overcome obstacles will be accumulated; if an obstacle is skipped the team receive 0 score
 
-· Each team has a certain time to complete the circuit (provide enough time to allow teams to try again from the beginning in case of a fall). 
+* If the robot falls there is no penalty if it is able to self-right itself. If the robot is not able to self-right itself, it needs to restart from the beginning of the obstacle.
 
-· Each team will have 2 attempts (subject to change) of race and each attempt lasts at most 15 minutes (subject to change). Each attempt must start at the starting position. The team’s official score will be selected from the best attempt. Each attempt will be recorded in time. The record time of each team’s attempt is measured from the time to take the first step and to the time it finishes the attempt. 
+* Everytime the robot touches the walls, a penalty of 1 point is given. 
 
-· Each attempt is considered “finished” by successfully passing the finish line. If the robot deviates from the course, or malfunctions, is not able to sustain safe and controlled walking, or the team operator declares ending the attempt, this attempt is considered “not finished”.
-
-· The winning team shall be the team with the shortest race time if the team finishes the whole course overpassing all the obstacles (except for the final one that gives a bonus if overpassed). If the team does not finish the whole race track, the final location where the robot reached and the ending time is recorded. The final location is measured from the start line to the farthest point on the robot. 
-
-· For grading teams who did not finish the whole course will be compared with the position where it reached. If two or more teams reached the same position, the team with shorter race time shall be given higher ranking. 
-
-· The judging committee reserves the right to stop any team’s attempt if considered dangerous or not following the guidelines.  
-
- 
+* The judging committee reserves the right to stop any team’s attempt if considered dangerous or not following the guidelines. 
 
  **Challenge 2 (Navigation Track).** 
 
 The objective is to explore an unknown maze environment in order to find given objects, in the shortest time possible. The robots will operate within a designated area of a maximum of 100 square meters, characterized by the following conditions:
 
-· The maze is enclosed by walls, preventing the robot from exiting. No map of the maze will be disclosed to the participants that will have to implement their own exploration strategy. 
+* The maze is enclosed by walls, preventing the robot from exiting. No map of the maze will be disclosed to the participants that will have to implement their own exploration strategy. 
 
-· The maze floor can be cluttered with moderate obstacles. 
+* The maze floor can be cluttered with moderate obstacles. 
 
-· Three (subject to change) objects will be hidden in the maze to be discovered. 
+* Four artifacts will be hidden in the maze to be discovered. The artifacts to be detected are:
 
-· The nature of these objects will be communicated to participants one week prior to the competition.
+* 2 unkown objects that are part of the COCO Dataset [https://cocodataset.org/#explore](https://cocodataset.org/#explore).
 
-· Throughout the competition, each robot is allotted a fixed time (to be defined) to locate all objects within the arena. The robot that successfully finds the most objects or locates all objects in the shortest time will be declared the winner.
+* A fire extinguisher
+
+  <img src="../images/extinguisher.jpg" width="300"/>
+
+* The padel racket "Bullpadel Ionic Power 2022"
+
+  <img src="../images/padel_racket.jpeg" width="200"/>
+ 
+In order to do this, you need to first to develop:
+
+1. An accurate mapping and localization (SLAM) framework that tells us where we are.
+
+* Throughout the competition, each robot is allotted a fixed time (to be defined) to locate all objects within the arena. The robot that successfully finds the most objects or locates all objects in the shortest time will be declared the winner.
 
  
