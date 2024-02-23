@@ -87,7 +87,7 @@ The artifacts to be detected are:
 * The padel racket "Bullpadel Ionic Power 2022"
 
   <img src="images/padel_racket.jpeg" width="200"/>
- 
+
 In order to do this, you need to first to develop:
 
 1. An accurate mapping and localization (SLAM) framework that tells us where we are.
@@ -116,12 +116,12 @@ There are 5 stereo-cameras on 5 sides of the robot (face,left,right,chin,rearDow
 
 | ROS Topic             | Description                          | Message type                                                 |
 | --------------------- | ------------------------------------ | ------------------------------------------------------------ |
-| ``/joint_state``      | Joint angles [rad] and rates [rad/s] | [sensor_msgs/JointState](http://docs.ros.org/api/sensor_msgs/html/msg/JointState.html) |
+| ``/joint_states``     | Joint angles [rad] and rates [rad/s] | [sensor_msgs/JointState](http://docs.ros.org/api/sensor_msgs/html/msg/JointState.html) |
 | ``/point_cloud_left`` | Point Cloud                          | [sensor_msgs/PointCloud2](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/PointCloud2.html) |
 | `/point_cloud_right`  | Point Cloud                          | [sensor_msgs/PointCloud2](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/PointCloud2.html) |
 | `/point_cloud_front`  | Point Cloud                          | [sensor_msgs/PointCloud2](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/PointCloud2.html) |
 | ``/point_cloud_back`` | Point Cloud                          | [sensor_msgs/PointCloud2](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/PointCloud2.html) |
-| ``/rslidar_points``   | Point Cloud                          | [sensor_msgs/PointCloud2](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/PointCloud2.html) |
+| ``/lidar_raw``        | Point Cloud                          | [sensor_msgs/PointCloud2](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/PointCloud2.html) |
 
 The second step is to develop a planning algorithm that provides the robot with the ability to navigate and move the robot in the environment. The Wolf simulation framework provides a combination of ROS and C++  interfaces to manage these tasks. This section explains these interfaces grouped by type.
 
@@ -130,10 +130,10 @@ You can use this virtual keyboard to move the robot around.
 
 To send twist commands (and receive Odometry messages) to the robot you need to use the following topics:
 
-| ROS Topic                | Description     | Message type                                                 |
-| ------------------------ | --------------- | ------------------------------------------------------------ |
-| `/wolf_controller/twist` | Target velocity | [geometry_msgs/Twist](http://docs.ros.org/api/geometry_msgs/html/msg/Twist.html) |
-| `/go1/odom`              | Odometry        | [nav_msgs/Odometry](http://docs.ros.org/melodic/api/nav_msgs/html/msg/Odometry.html) |
+| ROS Topic       | Description     | Message type                                                 |
+| --------------- | --------------- | ------------------------------------------------------------ |
+| `/cmd_vel`      | Target velocity | [geometry_msgs/Twist](http://docs.ros.org/api/geometry_msgs/html/msg/Twist.html) |
+| `/odometry/imu` | Odometry        | [nav_msgs/Odometry](http://docs.ros.org/melodic/api/nav_msgs/html/msg/Odometry.html) |
 
 **IMPORTANT:**
 
