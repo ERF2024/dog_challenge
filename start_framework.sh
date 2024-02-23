@@ -19,7 +19,9 @@ Application Options:
 \n
 -w,--world \tWorld name [default=navigation|locomotion], example: -w navigation
 \n
--v,--volume \tMounted folder [default=$HOME/ros_ws], example: -v $HOME/ros_ws"
+-v,--volume \tMounted folder [default=$HOME/ros_ws], example: -v $HOME/ros_ws
+\n
+-o,--odom \tPublish the robot odom as a TF frame [default=true], example: -o true"
 
 echo ' 
 ###########################################
