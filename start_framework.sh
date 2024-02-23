@@ -51,6 +51,7 @@ fi
 # Default
 NAMESPACE=
 WORLD_NAME=navigation
+ODOM=true
 MOUNTED_CODE_VOLUME=$HOME/ros_ws
 
 while [ -n "$1" ]; do # while loop starts
@@ -70,7 +71,10 @@ while [ -n "$1" ]; do # while loop starts
 		MOUNTED_CODE_VOLUME="$2"
 		shift
 		;;
-
+	-o|--odom)
+		ODOM="$2"
+		shift
+		;;
 
 	*) echo "Option $1 not recognized!" 
 		echo -e $USAGE
@@ -141,4 +145,4 @@ docker run --user root:root --hostname $HOSTNAME --net=$NET --device=/dev/dri:/d
 	--volume="/tmp:/tmp:rw" \
 	--volume="$SCRIPTPATH:/home/root/dog_challenge:rw" \
 	--volume="$MOUNTED_CODE_VOLUME:/home/root/ros_ws:rw"\
-        -it $IMAGE_NAME $SHELL -c "source /opt/ros/$ROS/setup.bash; source /opt/xbot/setup.sh; roslaunch /home/root/dog_challenge/launch/start_framework.launch robot_name:=$NAMESPACE robot_model:=$ROBOT_MODEL sensors:=$SENSORS gazebo_gui:=$GAZEBO_GUI initial_xyz:=$INITIAL_XYZ initial_rpy:=$INITIAL_RPY world_file:=$WORLD_FILE"
+        -it $IMAGE_NAME $SHELL -c "source /opt/ros/$ROS/setup.bash; source /opt/xbot/setup.sh; roslaunch /home/root/dog_challenge/launch/start_framework.launch robot_name:=$NAMESPACE robot_model:=$ROBOT_MODEL publish_odom_tf:=$ODOM  sensors:=$SENSORS gazebo_gui:=$GAZEBO_GUI initial_xyz:=$INITIAL_XYZ initial_rpy:=$INITIAL_RPY world_file:=$WORLD_FILE"

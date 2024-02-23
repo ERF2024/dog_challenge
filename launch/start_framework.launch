@@ -8,7 +8,8 @@
   <arg name="initial_xyz" default=""/>
   <arg name="initial_rpy" default=""/>
   <arg name="world_file" default=""/>
-  
+  <arg name="publish_odom_tf" default="true"/>
+
   <!-- REMAPPING -->
   <remap from="$(arg robot_name)/rslidar_points" to="$(arg robot_name)/points_raw" />
   <remap from="$(arg robot_name)/wolf_controller/twist" to="$(arg robot_name)/cmd_vel" />
@@ -22,6 +23,7 @@
   	<arg name="initial_xyz" value="$(arg initial_xyz)"/>
   	<arg name="initial_rpy" value="$(arg initial_rpy)"/>
   	<arg name="world_file" value="$(arg world_file)"/>
+	<arg name="publish_odom_tf" value="$(arg publish_odom_tf)"/>
   </include>
   
 </launch>

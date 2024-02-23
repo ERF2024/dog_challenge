@@ -167,6 +167,12 @@ the folder that will be automatically mounted and visible to docker if you run:
 $ docker exec --workdir /home/root -it wolf-app  /bin/bash
 ```
 
+Wolf provides leg odometry publishing the odom frame. If you want to use your own strategy for state estimation (e.g. Kalman filter fusing more inputs) you should disable the internal publisher as follows:  
+
+```bash
+$./start_framework.sh -o odom
+```
+
 
 
 ### **Locomotion**
