@@ -92,14 +92,14 @@ ROS=noetic
 CONTAINER_NAME="wolf-app"
 IMAGE_TAG="focal"
 ROBOT_MODEL=go1
-WORLD_FILE=/home/root/dog_challenge/worlds/$WORLD_NAME/$WORLD_NAME.world
+WORLD_FILE=/home/root/ros_ws/src/dog_challenge/worlds/$WORLD_NAME/$WORLD_NAME.world
 GAZEBO_GUI=true
 SENSORS=true
 INITIAL_XYZ=[0.0,0.0,1.0]
 INITIAL_RPY=[0.0,0.0,0.0]
 NET=host
-GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/$ROS/share/wolf_gazebo_resources/models/:/home/root/dog_challenge/models
-GAZEBO_RESOURCE_PATH=$GAZEBO_RESOURCE_PATH:/home/root/dog_challenge/worlds/$WORLD_NAME
+GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/$ROS/share/wolf_gazebo_resources/models/:/home/root/ros_ws/src/dog_challenge/models
+GAZEBO_RESOURCE_PATH=$GAZEBO_RESOURCE_PATH:/home/root/ros_ws/src/dog_challenge/worlds/$WORLD_NAME
 
 # Checks
 if [[ ( $WORLD_NAME == "navigation") || ( $WORLD_NAME == "locomotion") ]] 
@@ -145,6 +145,9 @@ docker run --user root:root --hostname $HOSTNAME --net=$NET --device=/dev/dri:/d
 	--gpus all \
 	--device=/dev/ttyUSB0 \
 	--volume="/tmp:/tmp:rw" \
-	--volume="$SCRIPTPATH:/home/root/dog_challenge:rw" \
+		 --volume "/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+		 	 -e "QT_X11_NO_MITSHM=1" \
+	--volume="$SCRIPTPATH:/home/root/ros_ws/src/dog_challenge:rw" \
 	--volume="$MOUNTED_CODE_VOLUME:/home/root/ros_ws:rw"\
-        -it $IMAGE_NAME $SHELL -c "source /opt/ros/$ROS/setup.bash; source /opt/xbot/setup.sh; roslaunch /home/root/dog_challenge/launch/start_framework.launch robot_name:=$NAMESPACE robot_model:=$ROBOT_MODEL publish_odom_tf:=$ODOM  sensors:=$SENSORS gazebo_gui:=$GAZEBO_GUI initial_xyz:=$INITIAL_XYZ initial_rpy:=$INITIAL_RPY world_file:=$WORLD_FILE"
+        -it $IMAGE_NAME $SHELL -c "source /opt/ros/$ROS/setup.bash; source /opt/xbot/setup.sh; roslaunch /home/root/ros_ws/src/dog_challenge/launch/start_framework.launch robot_name:=$NAMESPACE robot_model:=$ROBOT_MODEL publish_odom_tf:=$ODOM  sensors:=$SENSORS gazebo_gui:=$GAZEBO_GUI initial_xyz:=$INITIAL_XYZ initial_rpy:=$INITIAL_RPY world_file:=$WORLD_FILE"
+   
