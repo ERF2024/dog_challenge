@@ -104,7 +104,7 @@
     <include>
       <name>w22</name>
 				<pose>6.6000000000000005 3.96 0.0 0.0 0.0 0.0</pose>
-      <uri>model://smaze_wall_short</uri>
+      <uri>model://smaze_wall_short_short</uri>
     </include>
     <include>
       <name>w23</name>
