@@ -149,5 +149,5 @@ docker run --user root:root --hostname $HOSTNAME --net=$NET --device=/dev/dri:/d
 		 	 -e "QT_X11_NO_MITSHM=1" \
 	--volume="$SCRIPTPATH:/home/root/ros_ws/src/dog_challenge:rw" \
 	--volume="$MOUNTED_CODE_VOLUME:/home/root/ros_ws:rw"\
-        -it $IMAGE_NAME $SHELL -c "source /opt/ros/$ROS/setup.bash; source /opt/xbot/setup.sh; roslaunch /home/root/ros_ws/src/dog_challenge/launch/start_framework.launch robot_name:=$NAMESPACE robot_model:=$ROBOT_MODEL publish_odom_tf:=$ODOM  sensors:=$SENSORS gazebo_gui:=$GAZEBO_GUI initial_xyz:=$INITIAL_XYZ initial_rpy:=$INITIAL_RPY world_file:=$WORLD_FILE"
+        -it $IMAGE_NAME $SHELL -c "source /opt/ros/$ROS/setup.bash; source /opt/xbot/setup.sh; source /home/root/ros_ws/devel/setup.bash; roslaunch /home/root/ros_ws/src/dog_challenge/launch/start_framework.launch robot_name:=$NAMESPACE robot_model:=$ROBOT_MODEL publish_odom_tf:=$ODOM  sensors:=$SENSORS gazebo_gui:=$GAZEBO_GUI initial_xyz:=$INITIAL_XYZ initial_rpy:=$INITIAL_RPY world_file:=$WORLD_FILE"
    
