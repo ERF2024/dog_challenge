@@ -11,7 +11,7 @@
   <arg name="publish_odom_tf" default="true"/>
 
   <!-- REMAPPING -->
-  <remap from="$(arg robot_name)/rslidar_points" to="$(arg robot_name)/points_raw" />
+  <remap from="$(arg robot_name)/lidar_points" to="$(arg robot_name)/points_raw" />
   <remap from="$(arg robot_name)/wolf_controller/twist" to="$(arg robot_name)/cmd_vel" />
   
   <!-- LAUNCH! -->
