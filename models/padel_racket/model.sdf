@@ -1,0 +1,25 @@
+<?xml version='1.0' ?>
+<sdf version='1.6'>
+  <model name='Padel racket'>
+    <static>true</static>    
+    <link name='link'>
+      <collision name='collision'>
+        <geometry>
+          <mesh>
+             <scale>0.004 0.004 0.004</scale>
+            <uri>meshes/racket.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='visual'>
+        <geometry>
+          <mesh>
+            <scale>0.004 0.004 0.004</scale>
+            <uri>meshes/racket.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>
+    
