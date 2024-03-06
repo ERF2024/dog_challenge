@@ -1,0 +1,11 @@
+<launch>
+    <!-- Set teamName and challengeType parameters -->
+    <arg name="teamName"/>
+    <arg name="challengeType"/>
+
+    <!-- Launch the logger.py node -->
+    <node name="logger_node" pkg="start" type="logger.py" output="screen">
+        <param name="teamName" value="$(arg teamName)"/>
+        <param name="challengeType" value="$(arg challengeType)"/>
+    </node>
+</launch>
