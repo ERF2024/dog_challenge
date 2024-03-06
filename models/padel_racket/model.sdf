@@ -1,8 +1,12 @@
 <?xml version='1.0' ?>
 <sdf version='1.6'>
+  <material name="orange">
+    <color rgba="${255/255} ${108/255} ${10/255} 1.0"/>
+  </material>
   <model name='Padel racket'>
     <static>true</static>    
     <link name='link'>
+    <material>Gazebo/Red</material>
       <collision name='collision'>
         <geometry>
           <mesh>
@@ -18,6 +22,14 @@
             <uri>meshes/racket.stl</uri>
           </mesh>
         </geometry>
+        
+         <material>
+          <script>
+            <uri>model://padel_racket/materials/scripts</uri>
+            <uri>model://padel_racket/materials/textures</uri>
+            <name>padel</name>
+          </script>
+        </material>        
       </visual>
     </link>
   </model>
